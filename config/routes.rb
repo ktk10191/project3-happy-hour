@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Pgtestapp::Application.routes.draw do
   root 'application#index'
 
   get '*path' => 'application#index'
