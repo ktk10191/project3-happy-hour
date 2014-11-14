@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Include postgresql
+gem 'pg'
+
 gem 'bower-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
