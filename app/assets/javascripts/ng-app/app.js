@@ -1,7 +1,8 @@
-angular.mondule('happyHrApp', ['ui-router'])
+angular.module('happyHrApp', ['ui.router', 'templates'])
 
-	.config(function($stateProvider, $urlProvider) {
-		$urlRouterProvider.otherwise('/')
+	.config(function($stateProvider, $urlRouterProvider) {
+		
+		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
 			.state('home', {
@@ -10,5 +11,5 @@ angular.mondule('happyHrApp', ['ui-router'])
 				// whichever file you specify. Also the name of the file does not need to 
 				// have the '.html.erb' extension on it since the gem knows to look for that anyways. 
 				templateUrl: 'home.html' 
-			})
-	});
+			});
+	})
