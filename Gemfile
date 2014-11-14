@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 gem 'angular-rails-templates'
 gem 'bower-rails'
-gem 'pg'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
