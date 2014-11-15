@@ -5,6 +5,8 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+# Below is something un tested that may or may not need to stay
+# config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
 module Pgtestapp
   class Application < Rails::Application
