@@ -11,5 +11,14 @@ angular.module('happyHrApp', ['ui.router', 'templates'])
 				// whichever file you specify. Also the name of the file does not need to 
 				// have the '.html.erb' extension on it since the gem knows to look for that anyways. 
 				templateUrl: 'home.html' 
-			});
+			})
+			.state('login', {
+				url: '/login',
+				templateUrl: 'login.html'
+			})
+			.state('signup', {
+				url: '/signup',
+				templateUrl: 'signup.html'
+			})
+
 	})
