@@ -17,3 +17,4 @@
 //= require angular-rails-templates
 //= require_tree .
 //= require_tree ../templates
+//= require_tree ../../../vendor/assets/bower_components/bootstrap-sass-official/assets/javascripts
