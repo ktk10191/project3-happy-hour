@@ -1,0 +1,20 @@
+<!-- Angular form for user login with validation -->
+  <form name="frm">
+    <div>
+      <label for="">Email</label>
+      <input type="email" name="email" ng-model="user.email" required>
+      <span ng-show="frm.email.$dirty && frm.email.$error.required">Required!</span>
+      <span ng-show="frm.email.$dirty && frm.email.$error.email">not an email!</span>
+    </div>
+
+    <div>
+      <label for="">Password</label>
+      <input type="password" name="password" ng-model="user.password" required ng-minlength="5" ng-maxlength="10" />
+      <span ng-show="frm.password.$dirty && frm.password.$error.required">Required!</span>
+      <span ng-show="frm.password.$dirty && frm.password.$error.minlength">Password length must be between 5-10 characters long</span>
+      <span ng-show="frm.password.$dirty && frm.password.$error.maxlength">Password length must be between 5-10 characters long</span>
+    </div>
+
+    <button ng-disabled="frm.$invalid">Log in</button>
+
+  </form>

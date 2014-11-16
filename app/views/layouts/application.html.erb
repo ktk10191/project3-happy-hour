@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pgtestapp</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+<!-- Map styling -->
+  <style type="text/css">
+    html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+  </style>
+
+<!-- google maps API -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClelNPbq5nzHsR48z442fy7cXB1y0W8Hk"></script>
+
+  <script type="text/javascript">
+    function initialize() {
+      var mapOptions = {
+        center: { lat: 34.012982, lng: -118.495186 }, 
+        zoom: 8
+      };
+
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+
+</head>
+<body ng-app="happyHrApp">
+
+<a ui-sref="login">Log In</a>
+<a ui-sref="signup">Sign Up</a>
+
+<!-- <div id="map-canvas"></div> -->
+
+<%= yield %>
+
+</body>
+</html>
