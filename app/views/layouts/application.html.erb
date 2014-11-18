@@ -70,9 +70,45 @@
          <button type="submit" class="btn btn-default">Search</button>
        </form>
        <ul class="nav navbar-nav navbar-right">
-         <div class = "inlineList">
-           <li><button ng-click="login(sm)" class="btn btn-primary">Log In</button></li>
-           <l1><button ng-click="signUp(sm)" class="btn btn-primary">Sign Up</button></l1>
+         <div>
+           <li>
+              <div ng-controller="ModalDemoCtrl">
+                <script type="text/ng-template" id="logInModal.html">
+                  <div class="modal-header">
+
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" placeholder="Email" ng-model="userEmail"><br>
+                    <input type="text" placeholder="Password" ng-model="userPassword">
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" ng-click="login()">Log In</button>
+                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                  </div>
+                </script>
+              <button ng-click="login(sm)" class="btn btn-primary">Log In</button>
+              </div>
+            </li>
+           <l1>
+            <div ng-controller="ModalDemoCtrl">
+              <script type="text/ng-template" id="signUpModal.html">
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+                  <input type="text" placeholder="First Name" ng-model="newUserName"><br>
+                  <input type="text" placeholder="Last Name" ng-model="newUserLastName"><br>
+                  <input type="text" placeholder="Email" ng-model="newUserEmail"><br>
+                  <input type="text" placeholder="Password" ng-model="newUserPassword"><br>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" ng-click="submit()">Sign Up</button>
+                  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                </div>
+              </script>  
+            <button ng-click="signUp(sm)" class="btn btn-primary">Sign Up</button>
+            </div>
+          </l1>
          </div>
        </ul>
      </div><!-- /.navbar-collapse -->
@@ -84,41 +120,6 @@
 
 
 
-
-<div ng-controller="ModalDemoCtrl">
-    <script type="text/ng-template" id="logInModal.html">
-        <div class="modal-header">
-        
-        </div>
-        <div class="modal-body" ng-repeat="item in items">
-            <input type="text" placeholder="Email" ng-model="userEmail">
-            <input type="text" placeholder="Password" ng-model="userPassword">
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="login()">Log In</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-</div>
-
-
-<div ng-controller="ModalDemoCtrl">
-    <script type="text/ng-template" id="signUpModal.html">
-        <div class="modal-header">
-        
-        </div>
-        <div class="modal-body">
-          <input type="text" placeholder="First Name" ng-model="newUserName">
-          <input type="text" placeholder="Last Name" ng-model="newUserLastName">
-          <input type="text" placeholder="Email" ng-model="newUserEmail">
-          <input type="text" placeholder="Password" ng-model="newUserPassword">
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="submit()">Sign Up</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>  
-</div>
 
 
 
