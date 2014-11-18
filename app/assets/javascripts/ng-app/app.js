@@ -1,6 +1,6 @@
 var happyHr = angular.module('happyHrApp', ['ui.router', 'templates', 'ui.bootstrap'])
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  happyHr.config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
