@@ -15,6 +15,6 @@
 //= require angular
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require angular-bootstrap
 //= require_tree .
 //= require_tree ../templates
-//= require_tree ../../../vendor/assets/bower_components/bootstrap-sass-official/assets/javascripts
