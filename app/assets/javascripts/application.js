@@ -15,6 +15,7 @@
 //= require angular
 //= require angular-ui-router
 //= require angular-rails-templates
+//= require ui-bootstrap-tpls-0.12.0.min.js
 //= require angular-bootstrap
 //= require_tree .
 //= require_tree ../templates
