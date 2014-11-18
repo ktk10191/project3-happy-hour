@@ -14,3 +14,14 @@
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+.inlineList > li{
+     display: inline;
+     margin-right: 10px;
+
+}
+
+.container-fluid{
+    border: 5px solid black;
+    background: black;
+}
