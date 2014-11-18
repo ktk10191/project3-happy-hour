@@ -77,9 +77,10 @@
                   <div class="modal-header">
 
                   </div>
+                  <form class="form-inline" role="form">
                   <div class="modal-body">
-                    <input type="text" placeholder="Email" ng-model="userEmail"><br>
-                    <input type="text" placeholder="Password" ng-model="userPassword">
+                    <input type="text" placeholder="Email" ng-model="userEmail" class="form-control"><br>
+                    <input type="password" placeholder="Password" ng-model="userPassword" class="form-control">
                   </div>
                   <div class="modal-footer">
                     <button class="btn btn-primary" ng-click="login()">Log In</button>
@@ -96,10 +97,10 @@
 
                 </div>
                 <div class="modal-body">
-                  <input type="text" placeholder="First Name" ng-model="newUserName"><br>
-                  <input type="text" placeholder="Last Name" ng-model="newUserLastName"><br>
-                  <input type="text" placeholder="Email" ng-model="newUserEmail"><br>
-                  <input type="text" placeholder="Password" ng-model="newUserPassword"><br>
+                  <input type="text" placeholder="First Name" ng-model="newUserName" class="form-control"><br>
+                  <input type="text" placeholder="Last Name" ng-model="newUserLastName" class="form-control"><br>
+                  <input type="text" placeholder="Email" ng-model="newUserEmail" class="form-control"><br>
+                  <input type="password" placeholder="Password" ng-model="newUserPassword" class="form-control"><br>
                 </div>
                 <div class="modal-footer">
                   <button class="btn btn-primary" ng-click="submit()">Sign Up</button>
@@ -114,26 +115,14 @@
      </div><!-- /.navbar-collapse -->
    </div><!-- /.container-fluid -->
   </nav>
+
 <!-- <a ui-sref="login">Log In</a>
 <a ui-sref="signup">Sign Up</a> -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div id="map-canvas"></div>
-
-
+ 
+ 
 <%= yield %>
 
 </body>
