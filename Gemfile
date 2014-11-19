@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'unicorn'
 # Use Factory girl for testing
 gem 'factory_girl_rails'
 
@@ -61,7 +62,5 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap_form'
-
-gem 'unicorn'
 
 ruby "2.1.2"
