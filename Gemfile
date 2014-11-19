@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'unicorn'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 gem 'angular-rails-templates'
@@ -17,6 +18,10 @@ end
 	
 group :test do
 	gem 'shoulda-matchers', require: false
+end
+
+group :production do
+	gem 'rails_12factor', '0.0.2'
 end
 
 # Use Uglifier as compressor for JavaScript assets
@@ -55,3 +60,5 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap_form'
+
+ruby '2.1.2'
