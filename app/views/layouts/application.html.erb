@@ -85,7 +85,9 @@
                   <div class="modal-footer">
                   </div>
                 </script>
-                <button ng-click="login(sm)" class="btn btn-primary">Log In</button>
+                <% if current_user == nil %>
+                  <button ng-click="login(sm)" class="btn btn-primary">Log In</button>
+                <% end %>
               </div>
             </li>
             <li>
@@ -106,7 +108,9 @@
                 <div class="modal-footer">
                 </div>
               </script>  
-            <button ng-click="signUp(sm)" class="btn btn-primary">Sign Up</button>
+            <% if current_user == nil %>
+              <button ng-click="signUp(sm)" class="btn btn-primary">Sign Up</button>
+            <% end %>
             </div>
             </li>
             <li>
