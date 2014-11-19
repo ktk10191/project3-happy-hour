@@ -24,6 +24,9 @@ group :production do
 	gem 'rails_12factor', '0.0.2'
 end
 
+# Use Factory girl for testing
+gem 'factory_girl_rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
