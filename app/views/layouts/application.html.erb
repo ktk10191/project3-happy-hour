@@ -30,9 +30,6 @@
 </head>
 <body ng-app="happyHrApp">
 
- 
-
-
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -75,25 +72,27 @@
               <div ng-controller="ModalDemoCtrl">
                 <script type="text/ng-template" id="logInModal.html">
                   <div class="modal-header">
-
+                    <h3>Log In!</h3>
                   </div>
                   <div class="modal-body">
-                    <input type="text" placeholder="Email" ng-model="userEmail"><br>
-                    <input type="text" placeholder="Password" ng-model="userPassword">
+                    <%= bootstrap_form_for(:user, :url => sessions_path) do |f| %>
+                      <%= f.text_field :email %>
+                      <%= f.password_field :password %>
+                      <%= f.submit 'log in' %>
+                    <% end %>
+                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
                   </div>
                   <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="login()">Log In</button>
-                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
                   </div>
                 </script>
                 <button ng-click="login(sm)" class="btn btn-primary">Log In</button>
               </div>
             </li>
-            <l1>
+            <li>
             <div ng-controller="ModalDemoCtrl">
               <script type="text/ng-template" id="signUpModal.html">
                 <div class="modal-header">
-
+                  <h3>Sign Up!</h3>
                 </div>
                 <div class="modal-body">
                   <%= bootstrap_form_for(:user, :url => create_user_path(@user)) do |f| %>
@@ -101,19 +100,28 @@
                     <%= f.password_field :password %> <br>
                     <%= f.password_field :password_confirmation %>
                     <%= f.submit %>
-                    <%= f.submit 'Cancel', :name => 'cancel' %>
                     <% end %>
-
+                  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                </div>
+                <div class="modal-footer">
                 </div>
               </script>  
             <button ng-click="signUp(sm)" class="btn btn-primary">Sign Up</button>
             </div>
-            </l1>
+            </li>
+            <li>
+            <!-- shows current user and log out, only temporary for now -->
+              <% if current_user %>
+                currently logged in: <%= current_user.email %>
+                <%= link_to "logout", sessions_path, method: :delete %>
+              <% end %>
+            </li>
           </div>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
 <!-- <a ui-sref="login">Log In</a>
 <a ui-sref="signup">Sign Up</a> -->
 
