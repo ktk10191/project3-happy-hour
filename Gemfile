@@ -12,7 +12,7 @@ gem 'bower-rails'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
+# gem 'sass-rails', '~> 4.0.2'
 
 # Testing Stuff
 group :development, :test do
@@ -30,7 +30,7 @@ end
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+# gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
