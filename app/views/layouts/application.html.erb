@@ -85,9 +85,7 @@
                   <div class="modal-footer">
                   </div>
                 </script>
-                <% if current_user == nil %>
-                  <button ng-click="login(sm)" class="btn btn-primary">Log In</button>
-                <% end %>
+                <button ng-click="login(sm)" class="btn btn-primary">Log In</button>
               </div>
             </li>
             <li>
@@ -108,9 +106,7 @@
                 <div class="modal-footer">
                 </div>
               </script>  
-            <% if current_user == nil %>
-              <button ng-click="signUp(sm)" class="btn btn-primary">Sign Up</button>
-            <% end %>
+            <button ng-click="signUp(sm)" class="btn btn-primary">Sign Up</button>
             </div>
             </li>
             <li>
@@ -128,6 +124,8 @@
 
 <!-- <a ui-sref="login">Log In</a>
 <a ui-sref="signup">Sign Up</a> -->
+
+
 
 <%= yield %>
 
