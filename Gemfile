@@ -61,3 +61,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap_form'
+
+gem 'unicorn'
+
+ruby "2.1.2"
