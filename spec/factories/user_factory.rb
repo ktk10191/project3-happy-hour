@@ -10,6 +10,8 @@ FactoryGirl.define do
     #these setup the attributes, each declaration is a method call
     email "x@y.com"
     password "gemini"
+    name "bob"
+    username "bob22"
 
   end
 end
