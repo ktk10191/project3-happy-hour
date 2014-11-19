@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 	skip_before_filter :authorize
 	
 	def index
+		@user = User.new
 		@users = User.all
+
 	end
 
 	def new
@@ -13,14 +15,14 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			session[:user_id] = @user.id
+			session[:user_id] = @user.id.to_s
 			redirect_to root_url # Back to home page with a new session
 		else
-			render "new" # Not sure about this line. More than likely this will change to what the form is 
+			redirect_to (:back)
 		end
 	end
 
-	private
+private
 	def user_params
 		params.require(:user).permit(:email, :password, :password_confirmation)
 	end
