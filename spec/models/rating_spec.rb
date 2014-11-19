@@ -1,5 +1,10 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
-RSpec.describe Rating, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Rating do
+
+  xit "has a rating" do
+
+  end
+
 end

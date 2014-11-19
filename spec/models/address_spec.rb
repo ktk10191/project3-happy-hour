@@ -1,5 +1,18 @@
 require 'rails_helper'
+require 'shoulda/matchers'
 
-RSpec.describe Address, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Address do
+
+  xit "has a street address" do
+
+  end
+
+  xit "has a city" do
+
+  end
+
+  xit "has a state" do
+
+  end
+
 end
