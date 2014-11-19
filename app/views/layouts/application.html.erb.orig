@@ -114,6 +114,8 @@
      </div><!-- /.navbar-collapse -->
    </div><!-- /.container-fluid -->
   </nav>
+<<<<<<< HEAD
+=======
 <!-- <a ui-sref="login">Log In</a>
 <a ui-sref="signup">Sign Up</a> -->
 
@@ -130,10 +132,16 @@
 
 
 
+>>>>>>> master
 
+
+
+<<<<<<< HEAD
 <div id="map-canvas"></div>
-
-
+ 
+ 
+=======
+>>>>>>> master
 <%= yield %>
 
 </body>
