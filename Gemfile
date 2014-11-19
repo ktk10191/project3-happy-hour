@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Use Factory girl for testing
+gem 'factory_girl_rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 gem 'angular-rails-templates'
