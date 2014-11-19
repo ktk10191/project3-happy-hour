@@ -3,8 +3,6 @@ require 'shoulda/matchers'
 
 describe Rating do
 
-  xit "has a rating" do
-
-  end
+  it { should validate_presence_of(:rating) }
 
 end
