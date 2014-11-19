@@ -22,6 +22,9 @@ group :test do
 	gem 'shoulda-matchers', require: false
 end
 
+group :production do
+	gem 'rails_12factor', '0.0.2'
+end
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
