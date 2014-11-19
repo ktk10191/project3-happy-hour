@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Use Factory girl for testing
+gem 'factory_girl_rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 gem 'angular-rails-templates'
@@ -19,6 +22,9 @@ group :test do
 	gem 'shoulda-matchers', require: false
 end
 
+group :production do
+	gem 'rails_12factor', '0.0.2'
+end
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
