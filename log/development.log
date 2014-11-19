@@ -57,3 +57,53 @@ Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-11-19 10:54:10 -0800
 Started GET "/assets/signup.js?body=1" for 127.0.0.1 at 2014-11-19 10:54:10 -0800
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-19 14:36:57 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered application/index.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 103ms (Views: 93.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/angular/angular.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/rails_bootstrap_forms.css?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/angular-ui-router/release/angular-ui-router.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/angular-rails-templates.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/angular-bootstrap/ui-bootstrap-tpls.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/ui-bootstrap-tpls-0.12.0.min.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/ng-app/app.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/signup.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-19 14:36:58 -0800
