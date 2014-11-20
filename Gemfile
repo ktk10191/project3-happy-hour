@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'unicorn'
-# Use Factory girl for testing
-gem 'factory_girl_rails'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 gem 'angular-rails-templates'
@@ -12,7 +9,7 @@ gem 'bower-rails'
 gem 'pg'
 
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails', '~> 4.0.2'
 
 # Testing Stuff
 group :development, :test do
@@ -26,11 +23,15 @@ end
 group :production do
 	gem 'rails_12factor', '0.0.2'
 end
+
+# Use Factory girl for testing
+gem 'factory_girl_rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-# gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -63,4 +64,4 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
 
-ruby "2.1.2"
+ruby '2.1.2'

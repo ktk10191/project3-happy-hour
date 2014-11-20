@@ -8173,15 +8173,10 @@ button.close {
   margin-right: 10px;
 }
 
-/* line 25, /Users/kyleknott/projects/project3-happy-hour/app/assets/stylesheets/application.css.scss */
+/* line 26, /Users/kyleknott/projects/project3-happy-hour/app/assets/stylesheets/application.css.scss */
 .container-fluid {
   border: 5px solid black;
   background: black;
-}
-
-/* line 30, /Users/kyleknott/projects/project3-happy-hour/app/assets/stylesheets/application.css.scss */
-#map-canvas {
-  padding-top: 0px;
 }
 .rails-bootstrap-forms-date-select select,
 .rails-bootstrap-forms-time-select select,
