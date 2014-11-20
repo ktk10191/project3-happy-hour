@@ -10,7 +10,7 @@ describe Business, :type => :model do
   it { should validate_uniqueness_of(:phone_number) }
 
   # validate phone number is 10 digits
-<<<<<<< HEAD
+
   # it { should ensure_length_of(:phone_number).is(10) }
 
   # validate business has ratings
@@ -18,8 +18,7 @@ describe Business, :type => :model do
 
   # validate business has an address
   # it { should has_one(:address) }
-end
-=======
+
   it { should ensure_length_of(:phone_number).is_equal_to(10) }
 
   # validate phone number format
@@ -33,4 +32,3 @@ end
 
 
 end
->>>>>>> f4fbb66afb4cc6735e208fe0fd15c884c8237122
