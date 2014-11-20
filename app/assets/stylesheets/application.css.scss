@@ -16,6 +16,13 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+body {
+  background-image: url("../assets/background.jpg");
+  background-size: 30%;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+}
+
 .inlineList {
      display: inline;
      margin-right: 10px;
@@ -27,9 +34,10 @@
     background: black;
 }
 
-html, body, #map-canvas { 
-  height: 90%; 
-  margin: 0; 
+#map-canvas { 
+  height: 350px; 
+  width: 800px;
+  margin: 0 auto; 
   padding: 0;
 }
 
