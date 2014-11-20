@@ -41216,7 +41216,7 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 }]);
 var happyHr = angular.module('happyHrApp', ['ui.router', 'templates', 'ui.bootstrap'])
 
-  happyHr.config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
 
