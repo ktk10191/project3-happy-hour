@@ -94,7 +94,6 @@ function initialize() {
 
 </head>
 <body ng-app="happyHrApp">
-  <div class="container"></div>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -105,7 +104,7 @@ function initialize() {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">CHEERS</a>
+        <a class="navbar-brand" href="#"><img alt="brand" src="http://cheersbrews.com/images/Cheers_Logo2.png" height="37" width="96"></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -187,28 +186,23 @@ function initialize() {
     </div><!-- /.container-fluid -->
   </nav>
 
-<!-- <a ui-sref="login">Log In</a>
-<a ui-sref="signup">Sign Up</a> -->
-
-
-
 <%= yield %>
 
-<input id="pac-input" class="controls" type="text"
-        placeholder="Enter a location">
-    <div id="type-selector" class="controls">
-      <input type="radio" name="type" id="changetype-all" checked="checked">
-      <label for="changetype-all">All</label>
+<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+  
+  <div id="type-selector" class="controls">
+    <input type="radio" name="type" id="changetype-all" checked="checked">
+    <label for="changetype-all">All</label>
 
-      <input type="radio" name="type" id="changetype-establishment">
-      <label for="changetype-establishment">Establishments</label>
+    <input type="radio" name="type" id="changetype-establishment">
+    <label for="changetype-establishment">Establishments</label>
 
-      <input type="radio" name="type" id="changetype-address">
-      <label for="changetype-address">Addresses</label>
+    <input type="radio" name="type" id="changetype-address">
+    <label for="changetype-address">Addresses</label>
 
-      <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-geocode">Geocodes</label>
-    </div>
+    <input type="radio" name="type" id="changetype-geocode">
+    <label for="changetype-geocode">Geocodes</label>
+  </div>
 
 <div id="map-canvas"></div>
 
