@@ -1,12 +1,5 @@
 require 'rails_helper'
-require 'shoulda/matchers'
 
-describe Address do
-
-  it { should validate_presence_of(:street_address) }
-
-  it { should validate_presence_of(:city) }
-
-  it { should validate_presence_of(:state) }
-
+RSpec.describe Address, :type => :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
