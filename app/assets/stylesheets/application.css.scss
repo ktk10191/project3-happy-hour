@@ -23,7 +23,7 @@
 /*Footer*/
 
 #footer {
-  margin-top: 50px;
+  // margin-top: 50px;
   width:100%;
   height:270px;
   position:relative;
@@ -117,8 +117,9 @@ body {
 }
 
 #map-canvas { 
-  height: 350px; 
-  width: 800px;
+  position: relative;
+  height: 400px; 
+  width: 100%;
   margin: 0 auto; 
   padding: 0;
 }
