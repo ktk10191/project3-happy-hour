@@ -16,6 +16,91 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+/*Footer*/
+
+// #footer {
+//   width: 100%;
+//   height: 270px;
+//   background: #7bf8d6;
+//   text-align: center;
+//   padding: 25px 0 0 0;
+// }
+
+#footer {
+  margin-top: 120px;
+  width:100%;
+  height:270px;
+  position:relative;
+  bottom:0;
+  left:0;
+  background: gold;
+}
+
+#menu-wrapper { 
+  margin: 0 auto;
+  height: 200px; 
+  width: 1200px;
+}
+
+h4 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #404040;
+  margin-bottom: 10px;
+}
+
+.footermenus {
+  margin-top: 15px;
+  width: 290px;
+  float: left;
+  text-align: left;
+}
+
+#more li, #friends li, #inspiration li {
+  display:block;
+  font-family: century gothic, futura;
+  text-transform: uppercase;
+  width: 280px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-left: 75px;
+}
+
+#more a, #friends a, #inspiration a {
+  color: #404040;
+}
+
+#more li a:hover, #friends li a:hover, #inspiration li a:hover {
+  opacity: .6;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+
+
+#copyright {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  background: #444;
+  height: 22px;
+}
+
+#copyright p {
+  font-family: century gothic, futura;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 8px;
+  color: #fff;
+  margin: 0;
+  padding: 3px;
+}
+
+#copyright a {color: #7bf8d6;}
+
+
+
 body {
   // background-image: url("../assets/background.jpg");
   background-size: 30%;
