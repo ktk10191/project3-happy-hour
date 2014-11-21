@@ -12,12 +12,9 @@ Project3HappyHour::Application.routes.draw do
   post 'sessions' => 'sessions#create'
   delete 'sessions' => 'sessions#destroy'
 
-  get 'businesses/' => 'businesses#index'
-  get 'businesses/new' => 'businesses#new', as: :new_business
-  get 'businesses/:id' => 'businesses#show', as: :business
-  post 'businesses' => 'businesses#create', as: :create_business
-  get 'businesses/:id/edit' => 'businesses#edit', as: :edit_business
-  patch 'businesses/:id' => 'businesses#update'  
+  post 'businesses' => 'business#create', as: :create_business
+  get 'business/:id/edit' => 'business#edit', as: :edit_business
+  patch 'business/:id' => 'business#update'  
 
   # get '*path' => 'application#index'
 end
