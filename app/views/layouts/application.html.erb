@@ -6,91 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-
-<!-- google maps w/ places library API -->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-
-<script>
-  function initialize() {
-    var mapOptions = {
-      center: new google.maps.LatLng(34.0219, -118.4814),
-      zoom: 13
-    };
-    var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-
-    var input = /** @type {HTMLInputElement} */(
-        document.getElementById('pac-input'));
-
-    var types = document.getElementById('type-selector');
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-
-    var autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.bindTo('bounds', map);
-
-    var infowindow = new google.maps.InfoWindow();
-    var marker = new google.maps.Marker({
-      map: map,
-      anchorPoint: new google.maps.Point(0, -29)
-    });
-
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      infowindow.close();
-      marker.setVisible(false);
-      var place = autocomplete.getPlace();
-      if (!place.geometry) {
-        return;
-      }
-
-      // If the place has a geometry, then present it on a map.
-      if (place.geometry.viewport) {
-        map.fitBounds(place.geometry.viewport);
-      } else {
-        map.setCenter(place.geometry.location);
-        map.setZoom(17);  // Why 17? Because it looks good.
-      }
-      marker.setIcon(/** @type {google.maps.Icon} */({
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(35, 35)
-      }));
-      marker.setPosition(place.geometry.location);
-      marker.setVisible(true);
-
-      var address = '';
-      if (place.address_components) {
-        address = [
-          (place.address_components[0] && place.address_components[0].short_name || ''),
-          (place.address_components[1] && place.address_components[1].short_name || ''),
-          (place.address_components[2] && place.address_components[2].short_name || '')
-        ].join(' ');
-      }
-
-      infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-      infowindow.open(map, marker);
-    });
-
-    // Sets a listener on a radio button to change the filter type on Places
-    // Autocomplete.
-    function setupClickListener(id, types) {
-      var radioButton = document.getElementById(id);
-      google.maps.event.addDomListener(radioButton, 'click', function() {
-        autocomplete.setTypes(types);
-      });
-    }
-
-    setupClickListener('changetype-all', []);
-    setupClickListener('changetype-address', ['address']);
-    setupClickListener('changetype-establishment', ['establishment']);
-    setupClickListener('changetype-geocode', ['geocode']);
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 
 </head>
 <body ng-app="happyHrApp">
@@ -104,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img alt="brand" src="http://cheersbrews.com/images/Cheers_Logo2.png" height="37" width="96"></a>
+        <a class="navbar-brand" href="#"><%= image_tag("Cheers_Logo2.png", height: '37', width: '96') %></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -136,8 +52,9 @@
                     <%= bootstrap_form_for(:user, :url => sessions_path) do |f| %>
                       <%= f.text_field :email %>
                       <%= f.password_field :password %>
-                      <%= f.submit 'log in' %>
+                      <%= f.submit 'Log In', class: "btn btn-warning" %>
                     <% end %>
+                    <br>
                     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
                   </div>
                   <div class="modal-footer">
@@ -158,16 +75,20 @@
                     <%= f.text_field :username %> <br>
                     <%= f.password_field :password %> <br>
                     <%= f.password_field :password_confirmation %>
-                    <%= f.submit %>
+                    <%= f.submit class:"btn btn-warning"%>
                     <% end %>
+                    <br>
                   <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
                 </div>
                 <div class="modal-footer">
                 </div>
               </script>
             <% if current_user == nil %>
-              <button type="button "ng-click="signUp(sm)" class="btn btn-primary navbar-btn">Sign Up</button>
-              <button type="button" ng-click="login(sm)" class="btn btn-primary navbar-btn">Log In</button>
+              <button type="button "ng-click="signUp(md)" class="btn btn-primary navbar-btn">Sign Up</button>
+              <button type="button" ng-click="login(md)" class="btn btn-primary navbar-btn">Log In</button>
+              <button type="button" class="btn btn-primary navbar-btn" ui-sref="map">Map</button>
+
+              
             <% end %>
             </div>
             </li>
@@ -186,23 +107,40 @@
 
 <%= yield %>
 
-<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+<div id="content"></div>
+
+<div id="footer">
+  <div id="menu-wrapper">
+    <ul id="more" class="footermenus">
+      <li><h4>More on Cheers!</h4></li>
+      <li><a href="http://facebook.com/" target="_blank">Facebook</a></li>
+      <li><a href="http://instagram.com/" target="_blank">Instagram</a></li>
+      <li><a href="http://twitter.com/" target="_blank">Twitter</a></li>
+      <li><a href="http://www.linkedin.com/" target="_blank">Linked In</a></li>
+    </ul>
   
-  <div id="type-selector" class="controls">
-    <input type="radio" name="type" id="changetype-all" checked="checked">
-    <label for="changetype-all">All</label>
-
-    <input type="radio" name="type" id="changetype-establishment">
-    <label for="changetype-establishment">Establishments</label>
-
-    <input type="radio" name="type" id="changetype-address">
-    <label for="changetype-address">Addresses</label>
-
-    <input type="radio" name="type" id="changetype-geocode">
-    <label for="changetype-geocode">Geocodes</label>
+    <ul id="friends" class="footermenus">
+    <li><h4>Dev Team</h4></li>
+      <li><a ui-sref="kyle">Kyle</a></li>
+      <li><a ui-sref="ryan">Ryan</a></li>
+      <li><a ui-sref="cosimo">Cosimo</a></li>
+      <li><a ui-sref="sophana">Sophana</a></li>
+    </ul>
+    
+    <ul id="inspiration" class="footermenus">
+      <li><h4>Inspiration</h4></li>
+      <li><a href="http://www.biomimicryinstitute.org/" target="_blank">Drinking A Lot</a></li>
+      <li><a href="http://www.sightunseen.com/" target="_blank">Being Broke</a></li>
+      <li><a href="http://www.sagmeister.com/" target="_blank">Working for a Crappy Company</a></li>
+      <li><a href="http://thingsorganizedneatly.tumblr.com" target="_blank">Drinking Some More</a></li>
+      <li><a href="http://www.core77.com/" target="_blank">Drunk Life</a></li>
+    </ul>
   </div>
-
-<div id="map-canvas"></div>
+</div>
+  
+<div id="copyright">
+  <p>Created by TEAM DOOM</p>
+</div>
 
 </body>
 </html>
