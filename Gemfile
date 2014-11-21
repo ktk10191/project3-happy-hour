@@ -64,4 +64,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
 
+gem 'better_errors', '~> 2.0.0'
+
 ruby '2.1.2'
