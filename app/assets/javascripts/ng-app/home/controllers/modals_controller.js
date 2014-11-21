@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-  .controller('modalsCtrl', function ($scope, $modal, $log) {
+  .controller('modalsCtrl', function ($scope, $modal, $log, api) {
       $scope.login = function (size) {
         var modalInstance = $modal.open({
           templateUrl: 'logInModal.html',

@@ -215,14 +215,26 @@
         <input type="text" ng-model="businessPriceRange" placeholder="Price range">
         <input type="text" ng-model="businessWebsite" placeholder="Website">
         <input type="text" ng-model="businessRating" placeholder="Rating">
-        <button ng-click="createBusiness()" class="btn btn-primary">Add business</button>
-        // The input below is commented out because it will be changed to selecting stars or radio buttons. The price range will probably be something similar 
-        // <input type="text" ng-model="businessRating" placeholder="Rating">    
+        <button ng-click="createBusiness()" class="btn btn-primary">Add business</button>    
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
       </div>
     </script>
     <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add a business</button>
   </div>
+<div ng-controller="modalsCtrl">
+  <input type="text" ng-model="businessName" placeholder="Name">
+  
+  <input type="text" ng-model="businessAddr" placeholder="Address">
+
+  <input type="text" ng-model="businessPhone" placeholder="Phone number">
+  
+  <input type="text" ng-model="businessPriceRange" placeholder="Price range">
+        
+  <input type="text" ng-model="businessWebsite" placeholder="Website">
+  
+  <input type="text" ng-model="businessRating" placeholder="Rating">
+  
+  <button ng-click="createBusiness()" class="btn btn-primary">Add business</button> 
 
 
 </body>

@@ -6,18 +6,26 @@ class BusinessesController < ApplicationController
     if params[:id]
       business = business.find(params[:id])
     else
-      businesses = business.all
+      businesses = Business.all
       render json: businesses, status: 200
     end
   end
 
   def create
     business = Business.create(business_params)
-    if business.save
-      redirect_to root_url # Back to home page with a new session
-    else
-      redirect_to (:back)
-    end
+    render json: planet, status: 201
+  end
+
+  def update
+    business = Business.find(params[:id])
+    business.update_attributes(planet_params)
+    render nothing: true, status: 204
+  end
+
+  def destroy
+    business = Business.find(params[:id])
+    business.destroy
+    render nothing: true, status: 204
   end
 
 private
