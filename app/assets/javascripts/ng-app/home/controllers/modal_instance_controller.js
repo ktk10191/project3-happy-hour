@@ -8,6 +8,12 @@ angular.module('happyHrApp')
     $scope.newUserPassword = "";
     $scope.userEmail = "";
     $scope.userPassword = "";
+    $scope.newbusinessName = "";
+    $scope.newBusinessAddress = "";
+    $scope.newBusinessWebsite = "";
+    $scope.newBusinessPhoneNumber = "";
+    $scope.newBusinessSetting = "";
+    $scope.priceRange = "";
 
     // Please note that $modalInstance represents a modal window (instance) dependency.
     // It is not the same as the $modal service used above.

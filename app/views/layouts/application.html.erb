@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="happyHrApp">
 <head>
   <title>Cheers!</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -91,9 +91,28 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 
 </script>
-
+  <div ng-controller="modalDemoController">
+    <script type="text/ng-template" id="addBusinessModal.html" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places">
+       <div class="modal-header">
+          <h3>Add a business!</h3>
+        </div>
+                <div class="modal-body">
+                  <%= bootstrap_form_for(:business, :url => create_business_path(@business)) do |f| %>
+                    <%= f.text_field :email %> <br>
+                    <%= f.text_field :username %> <br>
+                    <%= f.password_field :password %> <br>
+                    <%= f.password_field :password_confirmation %>
+                    <%= f.submit %>
+                    <% end %>
+                  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                </div>
+                <div class="modal-footer">
+                </div>
+    </script>
+    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary navbar-btn">Sign Up</button>
+  </div>
 </head>
-<body ng-app="happyHrApp">
+<body>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -193,13 +212,10 @@
     <label for="changetype-all">All</label>
 
     <input type="radio" name="type" id="changetype-establishment">
-    <label for="changetype-establishment">Establishments</label>
+    <label for="changetype-establishment">Search by bar </label>
 
     <input type="radio" name="type" id="changetype-address">
-    <label for="changetype-address">Addresses</label>
-
-    <input type="radio" name="type" id="changetype-geocode">
-    <label for="changetype-geocode">Geocodes</label>
+    <label for="changetype-address">Search by address </label>
   </div>
 
 <div id="map-canvas"></div>
