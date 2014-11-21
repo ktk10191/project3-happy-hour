@@ -12,9 +12,13 @@ Project3HappyHour::Application.routes.draw do
   post 'sessions' => 'sessions#create'
   delete 'sessions' => 'sessions#destroy'
 
-  post 'businesses' => 'businesses#create', as: :create_business
-  get 'business/:id/edit' => 'businesses#edit', as: :edit_business
-  patch 'business/:id' => 'businesses#update'  
+  scope 'api', defaults: {format: :json} do
+    resources :businesses, :users, only: [:index, :create, :update, :destroy]
+  end
+
+  # post 'businesses' => 'businesses#create', as: :create_business
+  # get 'business/:id/edit' => 'businesses#edit', as: :edit_business
+  # patch 'business/:id' => 'businesses#update'  
 
   # get '*path' => 'application#index'
 end
