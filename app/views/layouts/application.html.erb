@@ -206,7 +206,7 @@
           <h3>Sign Up!</h3>
         </div>
                 <div class="modal-body">
-                  <%= bootstrap_form_for(:user, :url => create_business_path(@business)) do |f| %>
+                  <%= bootstrap_form_for(:business, :url => create_business_path(@business)) do |f| %>
                     <%= f.text_field :business_name %> <br>
                     // Look for bootstrap form ruby helper to change the phone number in the text box for the text field below
                     <%= f.text_field :phone_number %> <br>
