@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141121031905) do
+=======
+ActiveRecord::Schema.define(version: 20141120223038) do
+>>>>>>> 0bd5a66d22d14b0d5d04d99b5a71ab4b5ead3080
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +29,14 @@ ActiveRecord::Schema.define(version: 20141121031905) do
     t.string   "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.string   "street_no"
     t.string   "street_name"
     t.string   "city"
     t.string   "zipcode"
     t.string   "state"
+=======
+>>>>>>> 0bd5a66d22d14b0d5d04d99b5a71ab4b5ead3080
   end
 
   create_table "images", force: true do |t|
@@ -57,10 +64,13 @@ ActiveRecord::Schema.define(version: 20141121031905) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+=======
+>>>>>>> 0bd5a66d22d14b0d5d04d99b5a71ab4b5ead3080
   end
 
 end

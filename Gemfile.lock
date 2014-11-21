@@ -166,7 +166,11 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 1.2)
   jquery-rails
+<<<<<<< HEAD
   paperclip (~> 4.2)
+=======
+  paperclip
+>>>>>>> 0bd5a66d22d14b0d5d04d99b5a71ab4b5ead3080
   pg
   rails (= 4.0.4)
   rails_12factor (= 0.0.2)

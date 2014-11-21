@@ -207,10 +207,20 @@
 <div id="map-canvas"></div>
 
 
-
+<!-- image display -->
 <%= image_tag @user.avatar.url %>
 <%= image_tag @user.avatar.url(:medium) %>
 <%= image_tag @user.avatar.url(:thumb) %>
+
+<!-- Star raiting system display-->
+
+<body ng-app="starApp">
+    <div ng-controller="StarCtrl"> <span ng-repeat="rating in ratings">{{rating.current}} out of
+            {{rating.max}}
+        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+        </span>
+    </div>
+</body>
 
 </body>
 </html>
