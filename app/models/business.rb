@@ -5,5 +5,4 @@ class Business < ActiveRecord::Base
   validates_format_of :phone_number, with: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/ 
 
   has_many :ratings
-  has_one :address
 end
