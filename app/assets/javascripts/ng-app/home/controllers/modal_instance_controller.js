@@ -1,19 +1,6 @@
 angular.module('happyHrApp')
 
 .controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-    // $scope.items = ['item1', 'item2', 'item3'];
-    $scope.newUserName = "";
-    $scope.newUserLastName = "";
-    $scope.newUserEmail = "";
-    $scope.newUserPassword = "";
-    $scope.userEmail = "";
-    $scope.userPassword = "";
-    $scope.newbusinessName = "";
-    $scope.newBusinessAddress = "";
-    $scope.newBusinessWebsite = "";
-    $scope.newBusinessPhoneNumber = "";
-    $scope.newBusinessSetting = "";
-    $scope.priceRange = "";
 
     // Please note that $modalInstance represents a modal window (instance) dependency.
     // It is not the same as the $modal service used above.

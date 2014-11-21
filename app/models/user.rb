@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates_length_of :email, maximum: 255
   validates_length_of :password, minimum: 6, maximum: 20
 
+  has_many :ratings
+  
   # no idea why username and name validations make a bunch of other tests fail fix later
   # validates_length_of :username, minimum: 3, maximum: 20
   # validates_length_of :name, minimum: 3, maximum: 20

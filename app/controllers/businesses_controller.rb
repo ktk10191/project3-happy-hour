@@ -3,18 +3,17 @@ class BusinessesController < ApplicationController
   skip_before_filter :authorize
   
   def index
-    @business = Business.new
-    @users = Business.all
-
-  end
-
-  def new
-    @business = Business.new
+    if params[:id]
+      business = business.find(params[:id])
+    else
+      businesses = business.all
+      render json: businesses, status: 200
+    end
   end
 
   def create
-    @business = Business.new(business_params)
-    if @business.save
+    business = Business.create(business_params)
+    if business.save
       redirect_to root_url # Back to home page with a new session
     else
       redirect_to (:back)
@@ -23,6 +22,6 @@ class BusinessesController < ApplicationController
 
 private
   def business_params
-    params.require(:business).permit(:business_name, :phone_number, :setting)
+    params.require(:business).permit(:business_name, :phone_number, :setting, :website, :business_address, :rating)
   end
 end
