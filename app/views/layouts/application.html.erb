@@ -90,6 +90,8 @@
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
+    // Eventually the search will do something along the lines of an ng-repeat for the array of locations that is being updated by users adding to it. For each new object that it has, it will put the pin on it
+
 </script>
 </head>
 <body>
@@ -201,26 +203,26 @@
 <div id="map-canvas"></div>
 
   <div ng-controller="modalsCtrl">
-    <script type="text/ng-template" id="addBusinessModal.html" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places">
-       <div class="modal-header">
-          <h3>Sign Up!</h3>
-        </div>
-                <div class="modal-body">
-                  <%= bootstrap_form_for(:business, :url => create_business_path(@business)) do |f| %>
-                    <%= f.text_field :business_name %> <br>
-                    <%= f.text_field :business_address %> <br>
-                    // Look for bootstrap form ruby helper to change the phone number in the text box for the text field below
-                    <%= f.text_field :phone_number %> <br>
-                    <%= f.text_field :setting %> <br>
-                    <%= f.submit %>
-                    <% end %>
-                  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-                </div>
-                <div class="modal-footer">
-                </div>
+    <!-- removed the src for the places api in the script tag below. may need to add that back if the autocomplete needs to be added directly into the form here -->
+    <script type="text/ng-template" id="addBusinessModal.html">
+      <div class="modal-header">
+        <h3>Add a business!</h3>
+      </div>
+      <div class="modal-body">
+        <input type="text" ng-model="businessName" placeholder="Name">
+        <input type="text" ng-model="businessAddr" placeholder="Address">
+        <input type="text" ng-model="businessPhone" placeholder="Phone number">
+        <input type="text" ng-model="businessPriceRange" placeholder="Price range">
+        <input type="text" ng-model="businessWebsite" placeholder="Website">
+        <button ng-click="createBusiness()" class="btn btn-primary">Save business</button>
+        // The input below is commented out because it will be changed to selecting stars or radio buttons. The price range will probably be something similar 
+        // <input type="text" ng-model="businessRating" placeholder="Rating">    
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      </div>
     </script>
-    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary navbar-btn">Add a business</button>
+    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add a business</button>
   </div>
+
 
 </body>
 </html>
