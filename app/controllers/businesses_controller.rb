@@ -1,28 +1,17 @@
-class BusinessesController < ApplicationController
-<<<<<<< HEAD
-
-  def index
-     if params[:id]
-      business = business.find(params[:id])
-    else
-      businesses = Business.all
-=======
-  
-  skip_before_filter :authorize
+class BusinessesController < ApplicationController  
   
   def index
     if params[:id]
       business = business.find(params[:id])
     else
       businesses = business.all
->>>>>>> master
       render json: businesses, status: 200
     end
   end
 
   def create
-    business = Business.create(business_params)
-<<<<<<< HEAD
+    business = Business.create
+    # (business_params)
     render json: business, status: 201
   end
 
@@ -36,22 +25,10 @@ class BusinessesController < ApplicationController
     business = Business.find(params[:id])
     business.destroy
     render nothing: true, status: 204
-=======
-    render json: planet, status: 201
-    if business.save
-      redirect_to root_url # Back to home page with a new session
-    else
-      redirect_to (:back)
-    end
->>>>>>> master
   end
 
 private
   def business_params
-<<<<<<< HEAD
-    params.require(:business).permit(:business_name, :phone_number, :website, :business_address, :rating)
-=======
-    params.require(:business).permit(:business_name, :phone_number, :setting, :website, :business_address, :rating)
->>>>>>> master
+    # params.require(:business).permit(:business_name, :phone_number, :setting, :website, :business_address, :rating)
   end
 end
