@@ -209,33 +209,23 @@
         <h3>Add a business!</h3>
       </div>
       <div class="modal-body">
-        <input type="text" ng-model="businessName" placeholder="Name">
-        <input type="text" ng-model="businessAddr" placeholder="Address">
-        <input type="text" ng-model="businessPhone" placeholder="Phone number">
-        <input type="text" ng-model="businessPriceRange" placeholder="Price range">
-        <input type="text" ng-model="businessWebsite" placeholder="Website">
-        <input type="text" ng-model="businessRating" placeholder="Rating">
-        <button ng-click="createBusiness()" class="btn btn-primary">Add business</button>    
+        <p class="control-label">Name</p>
+        <input type="text" ng-model="businessName" class="form-control"><br>
+        <p class="control-label">Address</p>
+        <input type="text" ng-model="businessAddr" class="form-control"><br>
+        <p class="control-label">Phone number</p>
+        <input type="text" ng-model="businessPhone" class="form-control"><br>
+        <p class="control-label">Price range</p>
+        <input type="text" ng-model="businessPriceRange" class="form-control"><br>
+        <p class="control-label">Website</p>
+        <input type="text" ng-model="businessWebsite" class="form-control"><br>
+        <p class="control-label">Rating</p>
+        <input type="text" ng-model="businessRating" class="form-control"><br>
+        <button ng-click="addToBusinessApi()" class="btn btn-primary">Add business</button>    
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
       </div>
     </script>
     <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add a business</button>
   </div>
-<div ng-controller="modalsCtrl">
-  <input type="text" ng-model="businessName" placeholder="Name">
-  
-  <input type="text" ng-model="businessAddr" placeholder="Address">
-
-  <input type="text" ng-model="businessPhone" placeholder="Phone number">
-  
-  <input type="text" ng-model="businessPriceRange" placeholder="Price range">
-        
-  <input type="text" ng-model="businessWebsite" placeholder="Website">
-  
-  <input type="text" ng-model="businessRating" placeholder="Rating">
-  
-  <button ng-click="createBusiness()" class="btn btn-primary">Add business</button> 
-
-
 </body>
 </html>
