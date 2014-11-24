@@ -41215,15 +41215,81 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
     "");
 }]);
 angular.module('happyHrApp', ['ui.router', 'templates', 'ui.bootstrap'])
+
+.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+  
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider
+
+    .state('kyle', {
+      url:'/kyle',
+      templateUrl: 'kyle.html'
+    })
+    .state('ryan', {
+      url: '/ryan',
+      templateUrl: 'ryan.html'
+    })
+    .state('cosimo', {
+      url: '/cosimo',
+      templateUrl: 'cosimo.html'
+    })
+    .state('sophana', {
+      url: '/sophana',
+      templateUrl: 'sophana.html'
+    })
+    .state('map', {
+      url: '/map',
+      templateUrl: 'map.html'
+    })
+
+}]);
+angular.module('happyHrApp')
+
+.controller('modalInstanceCtrl', function ($scope, $modalInstance, api) {
+     $scope.test = "TEST"
+     // Please note that $modalInstance represents a modal window (instance) dependency.
+     // It is not the same as the $modal service used above.
+
+     // Below is going to submit the new user information currently it only closes the modal
+       $scope.submit = function () {
+         $modalInstance.close();
+       };
+      
+       // Below is going to  fire a login function which will eventually lead into creating a new session
+       $scope.logIn = function () {
+         $modalInstance.close();
+       };
+      
+       $scope.addToBusinessApi = function($http) {
+         console.log(data)
+         api.createBusiness($scope.businessName, $scope.businessAddr, $scope.businessPriceRange, $scope.businessWebsite, $scope.businessRating);
+         $modalInstance.dismiss('cancel');
+       };
+
+      api.getBusinesses()
+       .then(function(data){
+         console.log(data)
+         $scope.businesses = data.data
+       });
+       // Cancel the current modal that you have open
+       $scope.cancel = function () {
+         $modalInstance.dismiss('cancel');
+       };
+   })
+
+
+
+
 ;
 angular.module('happyHrApp')
 
-  .controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+  .controller('modalsCtrl', function ($scope, $modal, $log) {
       $scope.login = function (size) {
         var modalInstance = $modal.open({
           templateUrl: 'logInModal.html',
-          controller: 'ModalInstanceCtrl',
-          size: size,
+          controller: 'modalInstanceCtrl',
+          size: size
         });
 
         modalInstance.result.then(function (selectedItem) {
@@ -41234,43 +41300,24 @@ angular.module('happyHrApp')
       $scope.signUp = function (size) {
         var modalInstance = $modal.open({
           templateUrl: 'signUpModal.html',
-          controller: 'ModalInstanceCtrl',
-          size: size,
+          controller: 'modalInstanceCtrl',
+          size: size
         });
 
         modalInstance.result.then(function (selectedItem) {
           $log.info('Modal dismissed at: ' + new Date());
         });
       };
-  })
-;
-angular.module('happyHrApp')
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-    // $scope.items = ['item1', 'item2', 'item3'];
-    $scope.newUserName = "";
-    $scope.newUserLastName = "";
-    $scope.newUserEmail = "";
-    $scope.newUserPassword = "";
-    $scope.userEmail = "";
-    $scope.userPassword = "";
-
-    // Please note that $modalInstance represents a modal window (instance) dependency.
-    // It is not the same as the $modal service used above.
-
-    // Below is going to submit the new user information currently it only closes the modal
-      $scope.submit = function () {
-        $modalInstance.close();
-      };
-      
-      // Below is going to  fire a login function which will eventually lead into creating a new session
-      $scope.logIn = function () {
-        $modalInstance.close();
-      };
-      
-      // Cancel the current modal that you have open
-      $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+       $scope.addBusiness = function (size) {
+        var modalInstance = $modal.open({
+          templateUrl: 'addBusinessModal.html',
+          controller: 'modalInstanceCtrl',
+          size: size
+        });
+        modalInstance.result.then(function (selectedItem) {
+          $log.info('Modal dismissed at: ' + new Date());
+        });
       };
   })
 ;
@@ -41294,25 +41341,64 @@ angular.module('happyHrApp')
           templateUrl: 'signup.html'
         })
   });
+angular.module('happyHrApp')
+
+.service('api', function($http){
+
+  return {
+
+    getBusinesses: function(){
+
+      var promise = $http.get('/api/businesses')
+      .then(function(response) {
+        return response;
+      })
+
+      return promise;
+
+    },
+
+    // Add phone number back into the function below later
+    createBusiness: function(businessName, businessAddr, businessPriceRange, businessWebsite, businessRating) {
+
+      $http.post('/api/businesses',  { name: businessName,  address: businessAddr,  price: businessPriceRange, website: businessWebsite, rating: businessRating})
+        // number: businessPhone,
+    }
+  }
+});
 // Angular Rails Template
-// source: app/assets/templates/home.html.erb
+// source: app/assets/templates/cosimo.html.erb
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("home.html", "<div ui-view>\n	<h1> NEW HOME! Everyhting is named correctly now!</h1>\n\n	<h1>{{test}}</h1>\n</div>")
+  $templateCache.put("cosimo.html", '<div class="container">\n  <h1>Cosimo\'s page</h1>\n  \n</div>')
 }]);
 
 // Angular Rails Template
-// source: app/assets/templates/login.html.erb
+// source: app/assets/templates/kyle.html.erb
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("login.html", '<!-- Angular form for user login with validation -->\n  <form name="frm">\n    <div>\n      <label for="">Email</label>\n      <input type="email" name="email" ng-model="user.email" required>\n      <span ng-show="frm.email.$dirty && frm.email.$error.required">Required!</span>\n      <span ng-show="frm.email.$dirty && frm.email.$error.email">not an email!</span>\n    </div>\n\n    <div>\n      <label for="">Password</label>\n      <input type="password" name="password" ng-model="user.password" required ng-minlength="5" ng-maxlength="10" />\n      <span ng-show="frm.password.$dirty && frm.password.$error.required">Required!</span>\n      <span ng-show="frm.password.$dirty && frm.password.$error.minlength">Password length must be between 5-10 characters long</span>\n      <span ng-show="frm.password.$dirty && frm.password.$error.maxlength">Password length must be between 5-10 characters long</span>\n    </div>\n\n    <button ng-disabled="frm.$invalid">Log in</button>\n\n  </form>')
+  $templateCache.put("kyle.html", '<div class="container">\n  <h1>Kyle\'s Page</h1>\n  \n</div>')
 }]);
 
 // Angular Rails Template
-// source: app/assets/templates/signup.html.erb
+// source: app/assets/templates/map.html.erb
 
 angular.module("templates").run(["$templateCache", function($templateCache) {
-  $templateCache.put("signup.html", '<!-- Angular form for user signup with validation -->\n  <form name="frm">\n    <div>\n      <label for="">Full Name</label>\n      <input type="string" name="fullname" ng-model="user.fullname" required>\n      <span ng-show="frm.fullname.$dirty && frm.fullname.$error.required">Required!</span>\n    </div>\n    <div>\n      <label for="">Email</label>\n      <input type="email" name="email" ng-model="user.email" required>\n      <span ng-show="frm.email.$dirty && frm.email.$error.required">Required!</span>\n      <span ng-show="frm.email.$dirty && frm.email.$error.email">not an email!</span>\n    </div>\n\n    <div>\n      <label for="">Username</label>\n      <input type="username" name="username" ng-model="user.username" required>\n      <span ng-show="frm.username.$dirty && frm.username.$error.required">Required!</span>\n    </div>\n\n    <div>\n      <label for="">Password</label>\n      <input type="password" name="password" ng-model="user.password" required ng-minlength="5" ng-maxlength="10" />\n      <span ng-show="frm.password.$dirty && frm.password.$error.required">Required!</span>\n      <span ng-show="frm.password.$dirty && frm.password.$error.minlength">Password length must be between 5-10 characters long</span>\n      <span ng-show="frm.password.$dirty && frm.password.$error.maxlength">Password length must be between 5-10 characters long</span>\n    </div>\n\n    <button ng-disabled="frm.$invalid">Register</button>\n\n  </form>')
+  $templateCache.put("map.html", '<!-- google maps w/ places library API -->\n<script>\n  function initialize() {\n    var mapOptions = {\n      center: new google.maps.LatLng(34.0219, -118.4814),\n      zoom: 13\n    };\n    var map = new google.maps.Map(document.getElementById(\'map-canvas\'),\n      mapOptions);\n\n    var input = /** @type {HTMLInputElement} */(\n        document.getElementById(\'pac-input\'));\n\n    var types = document.getElementById(\'type-selector\');\n    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);\n    map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);\n\n    var autocomplete = new google.maps.places.Autocomplete(input);\n    autocomplete.bindTo(\'bounds\', map);\n\n    var infowindow = new google.maps.InfoWindow();\n    var marker = new google.maps.Marker({\n      map: map,\n      anchorPoint: new google.maps.Point(0, -29)\n    });\n\n    google.maps.event.addListener(autocomplete, \'place_changed\', function() {\n      infowindow.close();\n      marker.setVisible(false);\n      var place = autocomplete.getPlace();\n      if (!place.geometry) {\n        return;\n      }\n\n      // If the place has a geometry, then present it on a map.\n      if (place.geometry.viewport) {\n        map.fitBounds(place.geometry.viewport);\n      } else {\n        map.setCenter(place.geometry.location);\n        map.setZoom(17);  // Why 17? Because it looks good.\n      }\n      marker.setIcon(/** @type {google.maps.Icon} */({\n        url: place.icon,\n        size: new google.maps.Size(71, 71),\n        origin: new google.maps.Point(0, 0),\n        anchor: new google.maps.Point(17, 34),\n        scaledSize: new google.maps.Size(35, 35)\n      }));\n      marker.setPosition(place.geometry.location);\n      marker.setVisible(true);\n\n      var address = \'\';\n      if (place.address_components) {\n        address = [\n          (place.address_components[0] && place.address_components[0].short_name || \'\'),\n          (place.address_components[1] && place.address_components[1].short_name || \'\'),\n          (place.address_components[2] && place.address_components[2].short_name || \'\')\n        ].join(\' \');\n      }\n\n      infowindow.setContent(\'<div><strong>\' + place.name + \'</strong><br>\' + address);\n      infowindow.open(map, marker);\n    });\n\n    // Sets a listener on a radio button to change the filter type on Places\n    // Autocomplete.\n    function setupClickListener(id, types) {\n      var radioButton = document.getElementById(id);\n      google.maps.event.addDomListener(radioButton, \'click\', function() {\n        autocomplete.setTypes(types);\n      });\n    }\n\n    setupClickListener(\'changetype-all\', []);\n    setupClickListener(\'changetype-address\', [\'address\']);\n    setupClickListener(\'changetype-establishment\', [\'establishment\']);\n    setupClickListener(\'changetype-geocode\', [\'geocode\']);\n    }\n\n    google.maps.event.addDomListener(window, \'load\', initialize);\n\n</script>\n\n<div id="map-canvas"></div>\n\n<input id="pac-input" class="controls" type="text" placeholder="Enter a location">\n  \n  <div id="type-selector" class="controls">\n    <input type="radio" name="type" id="changetype-all" checked="checked">\n    <label for="changetype-all">All</label>\n\n    <input type="radio" name="type" id="changetype-establishment">\n    <label for="changetype-establishment">Establishments</label>\n\n    <input type="radio" name="type" id="changetype-address">\n    <label for="changetype-address">Addresses</label>\n\n    <input type="radio" name="type" id="changetype-geocode">\n    <label for="changetype-geocode">Geocodes</label>\n  </div>')
+}]);
+
+// Angular Rails Template
+// source: app/assets/templates/ryan.html.erb
+
+angular.module("templates").run(["$templateCache", function($templateCache) {
+  $templateCache.put("ryan.html", '<div class="container">\n  <h1>Ryan\'s page</h1>\n  \n</div>')
+}]);
+
+// Angular Rails Template
+// source: app/assets/templates/sophana.html.erb
+
+angular.module("templates").run(["$templateCache", function($templateCache) {
+  $templateCache.put("sophana.html", '<div class="container">\n  <h1>Sophana\'s page</h1>\n  \n</div>')
 }]);
 
 // This is a manifest file that'll be compiled into application.js, which will include all the files

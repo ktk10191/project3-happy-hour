@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="happyHrApp">
 <head>
   <title>Cheers!</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-
 </head>
-<body ng-app="happyHrApp">
+<body>
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,7 +41,7 @@
         <ul class="nav navbar-nav navbar-right">
           <div>
             <li>
-              <div ng-controller="ModalDemoCtrl">
+              <div ng-controller="modalsCtrl">
                 <script type="text/ng-template" id="logInModal.html">
                   <div class="modal-header">
                     <h3>Log In!</h3>
@@ -64,7 +62,7 @@
               </div>
             </li>
             <li>
-            <div ng-controller="ModalDemoCtrl">
+            <div ng-controller="modalsCtrl">
               <script type="text/ng-template" id="signUpModal.html">
                 <div class="modal-header">
                   <h3>Sign Up!</h3>
@@ -84,11 +82,9 @@
                 </div>
               </script>
             <% if current_user == nil %>
-              <button type="button "ng-click="signUp(md)" class="btn btn-primary navbar-btn">Sign Up</button>
               <button type="button" ng-click="login(md)" class="btn btn-primary navbar-btn">Log In</button>
+              <button type="button "ng-click="signUp(md)" class="btn btn-primary navbar-btn">Sign Up</button>
               <button type="button" class="btn btn-primary navbar-btn" ui-sref="map">Map</button>
-
-              
             <% end %>
             </div>
             </li>
@@ -97,6 +93,31 @@
               <% if current_user %>
                 currently logged in: <%= current_user.email %>
                 <%= link_to "logout", sessions_path, method: :delete %>
+                  <div ng-controller="modalsCtrl">
+                  <!-- removed the src for the places api in the script tag below. may need to add that back if the autocomplete needs to be added directly into the form here -->
+                    <script type="text/ng-template" id="addBusinessModal.html">
+                      <div class="modal-header">
+                        <h3>Add a business!</h3>
+                      </div>
+                      <div class="modal-body">
+                        <p class="control-label">Name</p>
+                        <input type="text" ng-model="businessName" class="form-control"><br>
+                        <p class="control-label">Address</p>
+                        <input type="text" ng-model="businessAddr" class="form-control"><br>
+                        <p class="control-label">Phone number</p>
+                        <input type="text" ng-model="businessPhone" class="form-control"><br>
+                        <p class="control-label">Price range</p>
+                        <input type="text" ng-model="businessPriceRange" class="form-control"><br>
+                        <p class="control-label">Website</p>
+                        <input type="text" ng-model="businessWebsite" class="form-control"><br>
+                        <p class="control-label">Rating</p>
+                        <input type="text" ng-model="businessRating" class="form-control"><br>
+                        <button ng-click="addToBusinessApi()" class="btn btn-primary">Add business</button>    
+                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                      </div>
+                    </script>
+                    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add a business</button>
+                  </div>
               <% end %>
             </li>
           </div>
@@ -122,7 +143,6 @@
       <li><a href="http://twitter.com/" target="_blank">Twitter</a></li>
       <li><a href="http://www.linkedin.com/" target="_blank">Linked In</a></li>
     </ul>
-  
     <ul id="friends" class="footermenus">
     <li><h4>Dev Team</h4></li>
       <li><a ui-sref="kyle" href="#kyle">Kyle</a></li>
@@ -130,7 +150,6 @@
       <li><a ui-sref="cosimo" href="#cosimo">Cosimo</a></li>
       <li><a ui-sref="sophana" href="#sophana">Sophana</a></li>
     </ul>
-    
     <ul id="inspiration" class="footermenus">
       <li><h4>Inspiration</h4></li>
       <li><a href="http://www.biomimicryinstitute.org/" target="_blank">Drinking A Lot</a></li>
@@ -145,6 +164,5 @@
 <div id="copyright">
   <p>Created by TEAM DOOM</p>
 </div>
-
 </body>
 </html>
