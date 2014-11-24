@@ -1,17 +1,12 @@
 class BusinessesController < ApplicationController  
   
   def index
-    if params[:id]
-      business = business.find(params[:id])
-    else
-      businesses = business.all
+      businesses = Business.all
       render json: businesses, status: 200
-    end
   end
 
   def create
-    business = Business.create
-    # (business_params)
+    business = Business.create(business_params)
     render json: business, status: 201
   end
 
@@ -29,6 +24,6 @@ class BusinessesController < ApplicationController
 
 private
   def business_params
-    # params.require(:business).permit(:business_name, :phone_number, :setting, :website, :business_address, :rating)
+    params.require(:business).permit(:business_name, :phone_number, :setting, :website, :business_address, :rating)
   end
 end

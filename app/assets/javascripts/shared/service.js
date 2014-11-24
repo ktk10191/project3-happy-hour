@@ -18,7 +18,9 @@ angular.module('happyHrApp')
     // Add phone number back into the function below later
     createBusiness: function(businessName, businessAddr, businessPriceRange, businessWebsite, businessRating) {
 
-      $http.post('/api/businesses',  { name: businessName,  address: businessAddr,  price: businessPriceRange, website: businessWebsite, rating: businessRating})
+      $http.post('/api/businesses',  { business_name: businessName,  business_address: businessAddr,  price: businessPriceRange, website: businessWebsite, rating: businessRating})
+
+      console.log('got to here')
         // number: businessPhone,
     }
   }
