@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
+
 gem "paperclip", "~> 4.2"
-=======
-gem 'paperclip'
->>>>>>> 0bd5a66d22d14b0d5d04d99b5a71ab4b5ead3080
+
 
 gem 'unicorn'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
