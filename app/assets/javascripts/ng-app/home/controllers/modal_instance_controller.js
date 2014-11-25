@@ -15,14 +15,13 @@ angular.module('happyHrApp')
          $modalInstance.close();
        };
       
-       $scope.addToBusinessApi = function($http) {
-         console.log(data)
+       $scope.addToBusinessApi = function() {
          api.createBusiness($scope.businessName, $scope.businessAddr, $scope.businessPriceRange, $scope.businessWebsite, $scope.businessRating);
          $modalInstance.dismiss('cancel');
        };
 
       api.getBusinesses()
-       .then(function(data){
+       .then(function (data){
          console.log(data)
          $scope.businesses = data.data
        });
