@@ -126,7 +126,16 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+
+  <div ng-controller="StarCtrl"> 
+  <span ng-repeat="rating in ratings">
+    {{rating.current}} out of {{rating.max}}
+    <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+  </span>
+</div>
+
 <%= yield %>
+
 
 <div id="content"></div>
 
