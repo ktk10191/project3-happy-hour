@@ -2,10 +2,12 @@
 <html ng-app="happyHrApp">
 <head>
   <title>Cheers!</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true%>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+
+   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+
 </head>
 <body>
   <nav class="navbar navbar-default" role="navigation">
@@ -128,7 +130,11 @@
 
 <%= yield %>
 
-<div id="content"></div>
+<div id="content">
+  <div class="container">
+    <%= image_tag("Cheers_Logo2.png", height: "100%" , width: "100%" ) %>  
+  </div>
+</div>
 
 <div id="footer">
   <div id="menu-wrapper">
@@ -141,10 +147,10 @@
     </ul>
     <ul id="friends" class="footermenus">
     <li><h4>Dev Team</h4></li>
-      <li><a ui-sref="kyle">Kyle</a></li>
-      <li><a ui-sref="ryan">Ryan</a></li>
-      <li><a ui-sref="cosimo">Cosimo</a></li>
-      <li><a ui-sref="sophana">Sophana</a></li>
+      <li><a ui-sref="kyle" href="#kyle">Kyle</a></li>
+      <li><a ui-sref="ryan" href="#ryan">Ryan</a></li>
+      <li><a ui-sref="cosimo" href="#cosimo">Cosimo</a></li>
+      <li><a ui-sref="sophana" href="#sophana">Sophana</a></li>
     </ul>
     <ul id="inspiration" class="footermenus">
       <li><h4>Inspiration</h4></li>
