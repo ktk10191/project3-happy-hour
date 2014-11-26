@@ -19,10 +19,15 @@ function initialize() {
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.bindTo('bounds', map);
 
-  var infowindow = new google.maps.InfoWindow();
+  var infowindow = new google.maps.InfoWindow({
+    happyhour:"<strong>Cheers! HAPPY HOUR: 1pm-5pm</strong>"
+  });
   var marker = new google.maps.Marker({
     map: map,
-    anchorPoint: new google.maps.Point(0, -29)
+    anchorPoint: new google.maps.Point(0, -29),
+    animation:google.maps.Animation.BOUNCE
+    // THIS IS WHERE WE CAN CHANGE THE MARKERS!!!!!
+    // icon:'pinkball.png'
   });
 
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -47,6 +52,12 @@ function initialize() {
       anchor: new google.maps.Point(17, 34),
       scaledSize: new google.maps.Size(35, 35)
     }));
+
+    // display infowindow when marker is clicked
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
 
@@ -59,7 +70,7 @@ function initialize() {
       ].join(' ');
     }
 
-    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+    infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address + '</strong><br>' + infowindow.happyhour );
     infowindow.open(map, marker);
   });
 
@@ -79,6 +90,16 @@ function initialize() {
 }
 
 // google.maps.event.addDomListener(window, 'load', initialize);
+
+// Asynchronously Loading to help with heroku
+// http://www.w3schools.com/googleAPI/google_maps_basic.asp
+// function loadScript()
+//   {
+//     var script = document.createElement("script");
+//     script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"; document.body.appendChild(script);
+//   }
+
+// window.onload = loadScript;
 
 initialize();
 
