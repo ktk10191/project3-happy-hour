@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 4.0.2'
 
 # Testing Stuff
 group :development, :test do
-	gem 'rspec-rails'
+	gem 'rspec-rails' 
 end
 	
 group :test do
