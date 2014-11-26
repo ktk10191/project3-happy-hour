@@ -12,7 +12,7 @@ business6 = Business.create([{ phone_number: '3108996999', website: 'http://www.
 business7 = Business.create([{ phone_number: '3102604504989', website: 'http://www.viceroyhotelsandresorts.com/', setting: 'pub', price: 'low',  business_name: 'Cameo Bar', street_no: '1819', street_name: 'Ocean Ave', city: 'Santa Monica', zipcode: '90401', state: 'California' }])
 business8 = Business.create([{ phone_number: '3104580707', website: 'http://www.yelp.com/biz/speak-easy-cocktail-santa-monica', setting: 'pub', price: 'low', business_name: 'Speak Easy Cocktail', street_no: '1326', street_name: 'Pico Blvd', city: 'Santa Monica', zipcode: '90405', state: 'California' }])
 business9 = Business.create([{ phone_number: '3103956037', website: 'http://www.circa93.com', setting: 'pub', price: 'low', business_name: 'The Room', street_no: '1325', street_name: 'Santa Monica Blvd', city: 'Santa Monica', zipcode: '90404', state: 'California' }])
-business10 = Business.create([{ phone_number: '3102594146', website: 'http://www.thecraftsmanbar.com', setting: 'pub', price: 'low', business_name: 'business1', street_no: '119', street_name: 'Broadway', city: 'Santa Monica', zipcode: '90405', state: 'California' }])
+business10 = Business.create([{ phone_number: '3102594146', website: 'http://www.thecraftsmanbar.com', setting: 'pub', price: 'low', business_name: 'The Craftsman', street_no: '119', street_name: 'Broadway', city: 'Santa Monica', zipcode: '90405', state: 'California' }])
 
 
 user1 = User.create([{ name: 'Steve Smith', username: 'TheSteve', email: 'steve@email.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' }])
