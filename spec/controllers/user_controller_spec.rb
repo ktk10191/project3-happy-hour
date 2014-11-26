@@ -19,5 +19,16 @@ describe UsersController do
 		end	
 	end
 
+	#index should return object
+  	it "should get an object from db" do
+
+	    # kick off a get request
+	    get :index
+
+	    # simply test that this controller will assign an 
+	    # @users object for our view
+	    assigns(:users).should_not be_nil
+   end
+
 end
 
