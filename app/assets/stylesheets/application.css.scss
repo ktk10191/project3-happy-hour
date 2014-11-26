@@ -22,7 +22,7 @@
 
 #content {
   height: 500px;
-  background-color: grey;
+  background-color: #A0A0A0;
 }
 
 /*Footer*/
@@ -34,7 +34,7 @@
   position:relative;
   bottom:0;
   left:0;
-  background: gold;
+  background: #ffd700;
 }
 
 #menu-wrapper { 
@@ -121,6 +121,8 @@ body {
     background: black;
 }
 
+
+// styles for google maps
 #map-canvas { 
   position: relative;
   height: 500px; 
@@ -128,7 +130,6 @@ body {
   margin: 0 auto; 
   padding: 0;
 }
-
 .controls {
   margin-top: 16px;
   border: 1px solid transparent;
@@ -172,4 +173,15 @@ body {
   font-size: 13px;
   font-weight: 300;
 }
+
+#target {
+  width: 345px;
+}
+// end of styling for google maps
+
+.navbar {
+  margin-bottom: 0;
+  border: 0px
+}
+
 
