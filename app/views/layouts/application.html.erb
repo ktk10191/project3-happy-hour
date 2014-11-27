@@ -130,6 +130,12 @@
 
 <%= yield %>
 
+ <div ng-controller="mapController">
+<button ng-click="addresses()">test</button>
+  </div>
+<div ng-controller="mapController">
+<button ng-click="addAddresses()">test2</button>
+  </div>
 <div id="content">
   <div class="container">
     <%= image_tag("Cheers_Logo2.png", height: "100%" , width: "100%" ) %>  
@@ -162,7 +168,7 @@
     </ul>
   </div>
 </div>
-  
+
 <div id="copyright">
   <p>Created by TEAM DOOM</p>
 </div>
