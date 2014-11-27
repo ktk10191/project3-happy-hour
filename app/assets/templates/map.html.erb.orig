@@ -8,17 +8,17 @@ function initialize() {
   };
   var map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
-
   var input = /** @type {HTMLInputElement} */(
       document.getElementById('pac-input'));
-
   var types = document.getElementById('type-selector');
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-
   var autocomplete = new google.maps.places.Autocomplete(input);
   autocomplete.bindTo('bounds', map);
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
   var infowindow = new google.maps.InfoWindow({
     happyhour:"<strong>Cheers! HAPPY HOUR: 1pm-5pm</strong>"
   });
@@ -29,7 +29,6 @@ function initialize() {
     // THIS IS WHERE WE CAN CHANGE THE MARKERS!!!!!
     // icon:'pinkball.png'
   });
-
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     infowindow.close();
     marker.setVisible(false);
@@ -37,7 +36,6 @@ function initialize() {
     if (!place.geometry) {
       return;
     }
-
     // If the place has a geometry, then present it on a map.
     if (place.geometry.viewport) {
       map.fitBounds(place.geometry.viewport);
@@ -52,15 +50,20 @@ function initialize() {
       anchor: new google.maps.Point(17, 34),
       scaledSize: new google.maps.Size(35, 35)
     }));
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
     // display infowindow when marker is clicked
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map,marker);
     });
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
-
     var address = '';
     if (place.address_components) {
       address = [
@@ -69,11 +72,13 @@ function initialize() {
         (place.address_components[2] && place.address_components[2].short_name || '')
       ].join(' ');
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address + '</strong><br>' + infowindow.happyhour );
     infowindow.open(map, marker);
   });
-
   // Sets a listener on a radio button to change the filter type on Places
   // Autocomplete.
   function setupClickListener(id, types) {
@@ -82,15 +87,19 @@ function initialize() {
       autocomplete.setTypes(types);
     });
   }
-
   setupClickListener('changetype-all', []);
   setupClickListener('changetype-address', ['address']);
   setupClickListener('changetype-establishment', ['establishment']);
   setupClickListener('changetype-geocode', ['geocode']);
+
+  // Here is where we load our json!!
+  map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
 }
-
 // google.maps.event.addDomListener(window, 'load', initialize);
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 // Asynchronously Loading to help with heroku
 // http://www.w3schools.com/googleAPI/google_maps_basic.asp
 // function loadScript()
@@ -98,16 +107,19 @@ function initialize() {
 //     var script = document.createElement("script");
 //     script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"; document.body.appendChild(script);
 //   }
+<<<<<<< HEAD
+// window.onload = loadScript;
+=======
 
 // window.onload = loadScript;
 
+>>>>>>> master
 initialize();
-
 </script>
 
 
     <body>
-    <input id="pac-input" class="controls" type="text"
+    <!-- <input id="pac-input" class="controls" type="text"
         placeholder="Enter a location">
     <div id="type-selector" class="controls">
       <input type="radio" name="type" id="changetype-all" checked="checked">
@@ -120,7 +132,7 @@ initialize();
       <label for="changetype-address">Addresses</label>
 
       <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-geocode">Geocodes</label>
+      <label for="changetype-geocode">Geocodes</label> -->
     </div>
     <div id="map-canvas"></div>
   </body>
