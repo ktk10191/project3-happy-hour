@@ -122,5 +122,10 @@ initialize();
       <input type="radio" name="type" id="changetype-geocode">
       <label for="changetype-geocode">Geocodes</label>
     </div>
-    <div id="map-canvas"></div>
+    <div id="map-canvas" ng-controller:'mapController'>
+      <marker ng-repeat="p in positions" position="{{p}}" on-click="showInfoWindow(event, 'marker-info')"></marker>
+        <info-window id="marker-info">
+          <h4></h4>
+        </info-window>
+    </div>
   </body>

@@ -16,7 +16,7 @@ angular.module('happyHrApp')
           // console.log($scope.businesses[i].city);
           // console.log($scope.businesses[i].zipcode);
           $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
-          console.log($scope.fullAddress);
+          // console.log($scope.fullAddress);
           $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' +$scope.fullAddress+ '&sensor=false')
             .then(function(data) {
               var p = data.data.results[0].geometry.location;
