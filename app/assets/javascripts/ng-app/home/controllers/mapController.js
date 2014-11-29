@@ -13,18 +13,16 @@ angular.module('happyHrApp')
 
         for(var i = 0; i < $scope.businesses[0].length; i++) {
           $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
-          (function(counter) {
+          // need a closure here to enable us to access the for loop index through j in the $http get
+          (function(j) {
             $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' +$scope.fullAddress)
               .then(function(data) {
-                var p = data.data.results[0].geometry.location;
-                var lat = p.lat;
-                var lng = p.lng;
-                $scope.businesses[0][counter].lat = lat;
-                $scope.businesses[0][counter].lng = lng;
-                console.log($scope.businesses[0][counter]);
+                var latLng = data.data.results[0].geometry.location;
+                $scope.businesses[0][j].latLng = latLng;
+                console.log($scope.businesses[0][j]);
               })
             }(i));
-        }
-      })
-    }
+        };
+      });
+    };
   });

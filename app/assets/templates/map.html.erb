@@ -22,10 +22,13 @@ function initialize() {
   var infowindow = new google.maps.InfoWindow({
     happyhour:"<strong>Cheers! HAPPY HOUR: 1pm-5pm</strong>"
   });
+
+  
   var marker = new google.maps.Marker({
     map: map,
     anchorPoint: new google.maps.Point(0, -29),
-    animation:google.maps.Animation.BOUNCE
+    animation:google.maps.Animation.BOUNCE,
+    position: { lat: 34.0247122, lng: -118.4601068 }
     // THIS IS WHERE WE CAN CHANGE THE MARKERS!!!!!
     // icon:'pinkball.png'
   });
