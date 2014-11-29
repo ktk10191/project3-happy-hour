@@ -24,7 +24,8 @@ angular.module('happyHrApp', ['ui.router', 'templates', 'ui.bootstrap'])
     })
     .state('map', {
       url: '/map',
-      templateUrl: 'map.html'
+      templateUrl: 'map.html',
+      controller: 'mapController'
     })
 
 }]);

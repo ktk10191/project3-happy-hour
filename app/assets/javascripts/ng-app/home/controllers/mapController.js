@@ -8,13 +8,12 @@ angular.module('happyHrApp')
       api.getBusinesses().then(function (data){
         // Specifically pushing the json data into the array
         $scope.businesses.push(data.data);
-        // Making sure everything works by logging the newly populated array
-        // console.log($scope.businesses);
 
         for(var i = 0; i < $scope.businesses[0].length; i++) {
           $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
-          // need a closure here to enable us to access the for loop index through j in the $http get
+          // need a closure here to enable us to access the for loop index via var j in the $http get
           (function(j) {
+            // make a get request to google to geocode the full addresses in the database
             $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' +$scope.fullAddress)
               .then(function(data) {
                 var latLng = data.data.results[0].geometry.location;
