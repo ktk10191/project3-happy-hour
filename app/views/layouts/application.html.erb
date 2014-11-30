@@ -130,17 +130,6 @@
 
 <%= yield %>
 
-<div ng-controller="mapController">
-  <button ng-click="addresses()">show LatLng</button>
-
-  <!-- just testing to see if we can pull the latlng data below. data won't appear until you hit the button -->
-  <div ng-repeat="businessArray in businesses">
-    <div ng-repeat="oneBusiness in businessArray">
-      <div>{{oneBusiness.latLng}}</div>
-    </div>
-  </div>
-</div>
-
 <div id="content">
   <div class="container">
     <%= image_tag("Cheers_Logo2.png", height: "100%" , width: "100%" ) %>  
