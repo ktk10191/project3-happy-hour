@@ -2,11 +2,11 @@ angular.module('happyHrApp')
 
   .controller('mapController', function($scope, api, $http) {
 
-
+// this function initializes the map
     $scope.init = function () {
       var mapOptions = {
         center: new google.maps.LatLng(34.0219, -118.4814),
-        zoom: 13
+        zoom: 14
       };
       $scope.map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
@@ -46,6 +46,7 @@ angular.module('happyHrApp')
                 $scope.businesses[0][j].latLng = latLng;
                 // console.log($scope.businesses[0][j]);
 
+                // markers are generated when geocodeAddresses() is run and positions are set equal to latLng above 
                 var marker = new google.maps.Marker({
                   map: $scope.map,
                   anchorPoint: new google.maps.Point(0, -29),
@@ -54,7 +55,6 @@ angular.module('happyHrApp')
                   // THIS IS WHERE WE CAN CHANGE THE MARKERS!!!!!
                   // icon:'pinkball.png'
                 });
-
               })
             }(i));
         };
