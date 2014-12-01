@@ -8,6 +8,9 @@ angular.module('happyHrApp')
         center: new google.maps.LatLng(34.0219, -118.4814),
         zoom: 14
       };
+
+      var infoWindow = new google.maps.InfoWindow();
+
       $scope.map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
@@ -17,19 +20,17 @@ angular.module('happyHrApp')
       var types = document.getElementById('type-selector');
       // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
       // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-      // var autocomplete = new google.maps.places.Autocomplete(input);      
-      // console.log(mapOptions);tocomplete.bindTo('bounds', map);
-      var infowindow = new google.maps.InfoWindow({
-        happyhour:"<strong>Cheers! HAPPY HOUR: 1pm-5pm</strong>"
-      });
-    };
+      // var autocomplete = new google.maps.places.Autocomplete(input);   
+
+      
+    }
 
     // Starting with empty array to push data into
     $scope.businesses = [];
     $scope.map = null;
     // Getting business data from the api and pushing it into the businesses array
     $scope.geocodeAddresses = function() {
-
+      // call our api to get our data
       api.getBusinesses().then(function (data){
         // Specifically pushing the json data into the array
         $scope.businesses.push(data.data);
@@ -42,22 +43,27 @@ angular.module('happyHrApp')
             $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' +$scope.fullAddress)
               .then(function(data) {
                 var latLng = data.data.results[0].geometry.location;
-
                 $scope.businesses[0][j].latLng = latLng;
                 // console.log($scope.businesses[0][j]);
-
                 // markers are generated when geocodeAddresses() is run and positions are set equal to latLng above 
                 var marker = new google.maps.Marker({
                   map: $scope.map,
                   anchorPoint: new google.maps.Point(0, -29),
                   animation:google.maps.Animation.BOUNCE,
                   position: latLng
-                  // THIS IS WHERE WE CAN CHANGE THE MARKERS!!!!!
                   // icon:'pinkball.png'
+                });
+                // infowindow populates here
+                var infoWindow = new google.maps.InfoWindow({
+                  content: $scope.businesses[0][j].business_name + ', ' + $scope.businesses[0][j].happy_hour_time
+                });
+                google.maps.event.addListener(marker, "click", function() {
+                  infoWindow.open($scope.map, marker);
                 });
               })
             }(i));
         };
+
       });
     };
   });
