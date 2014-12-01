@@ -16,9 +16,6 @@ Project3HappyHour::Application.routes.draw do
     resources :businesses, only: [:index, :create, :update, :destroy]
   end
 
-  # post 'businesses' => 'businesses#create', as: :create_business
-  # get 'business/:id/edit' => 'businesses#edit', as: :edit_business
-  # patch 'business/:id' => 'businesses#update'  
+  get 'ratings/' => 'ratings#index'
 
-  # get '*path' => 'application#index'
 end

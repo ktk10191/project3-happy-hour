@@ -13,18 +13,8 @@ angular.module('happyHrApp')
 
       $scope.map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
-
-      var input = /** @type {HTMLInputElement} */(
-          document.getElementById('pac-input'));
-
-      var types = document.getElementById('type-selector');
-      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-      // var autocomplete = new google.maps.places.Autocomplete(input);   
-
-      
     }
-
+    
     // Starting with empty array to push data into
     $scope.businesses = [];
     $scope.map = null;
@@ -54,14 +44,18 @@ angular.module('happyHrApp')
                   // icon:'pinkball.png'
                 });
                 // infowindow content populates here
-                var infowindow = new google.maps.InfoWindow({
+                var infowindow = new google.maps.InfoWindow ({
                   maxWidth: 200,
                   content: 
-                  "<p><strong>" + $scope.businesses[0][j].business_name + "</strong><p/>" + 
-                  "<p>Happy Hour: " + $scope.businesses[0][j].happy_hour_time  + "</p>" + 
-                  "<p>Phone Number: " + $scope.businesses[0][j].phone_number + "</p>" +
-                  "<p>Address: " + $scope.fullAddress + "</p>"
+                    "<p><strong>" + $scope.businesses[0][j].business_name + "</strong><p/>" + 
+                    "<p>Happy Hour: " + $scope.businesses[0][j].happy_hour_time  + "</p>" + 
+                    "<p>Phone Number: " + $scope.businesses[0][j].phone_number + "</p>" +
+                    "<p>Address: " + $scope.fullAddress + "</p>" + 
+                    "<p>Ratings: " + $scope.businesses[0][j].rating + "</p>"
                 });
+
+                // console.log ($scope.businesses[0][j].business_id.rating)
+
                 google.maps.event.addListener(marker, "click", function() {
                   infowindow.close()
                   // infowindow.setContent()
@@ -70,7 +64,8 @@ angular.module('happyHrApp')
               })
             }(i));
         };
-
       });
     };
   });
+
+  
