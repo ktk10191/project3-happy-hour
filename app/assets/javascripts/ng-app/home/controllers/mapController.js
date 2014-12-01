@@ -77,7 +77,6 @@ angular.module('happyHrApp')
                    $scope.infowindows[i].close();
                  }
                }
-
              })
            }(i));
        };
