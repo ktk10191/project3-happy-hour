@@ -17,7 +17,16 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
 .page-content {
-  height: 500px
+  height: 500px;
+}
+
+.info {
+  height: 400px;
+  width: 450px;
+  background-color: white;
+  margin-top: 50px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #content {
