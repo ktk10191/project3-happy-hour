@@ -70,7 +70,6 @@ angular.module('happyHrApp')
               })
             }(i));
         };
-
       });
     };
   });
