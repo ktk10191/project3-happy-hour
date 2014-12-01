@@ -36,7 +36,6 @@ angular.module('happyHrApp')
        // Specifically pushing the json data into the array
        $scope.businesses.push(data.data);
 
-<<<<<<< HEAD
         for(var i = 0; i < $scope.businesses[0].length; i++) {
           $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
           // need a closure here to enable us to access the for loop index via var j in the $http get
@@ -72,7 +71,7 @@ angular.module('happyHrApp')
               })
             }(i));
         };
-=======
+
        for(var i = 0; i < $scope.businesses[0].length; i++) {
          $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
          // need a closure here to enable us to access the for loop index via var j in the $http get
@@ -100,7 +99,6 @@ angular.module('happyHrApp')
                  "<p>Phone Number: " + $scope.businesses[0][j].phone_number + "</p>" +
                  "<p>Address: " + $scope.fullAddress + "</p>"
                });
->>>>>>> master
 
                 $scope.infowindows.push( infowindow);
 

@@ -27,22 +27,26 @@ angular.module('happyHrApp')
 
          .state('kyle', {
           url:'/kyle',
-          templateUrl: 'kyle.html'
+          templateUrl: 'kyle.html',
+          controller: 'bioController'
         })
 
         .state('ryan', {
           url: '/ryan',
-          templateUrl: 'ryan.html'
+          templateUrl: 'ryan.html',
+          controller: 'bioController'
         })
 
         .state('cosimo', {
           url: '/cosimo',
-          templateUrl: 'cosimo.html'
+          templateUrl: 'cosimo.html',
+          controller: 'bioController'
         })
 
         .state('sophana', {
           url: '/sophana',
-          templateUrl: 'sophana.html'
+          templateUrl: 'sophana.html',
+          controller: 'bioController'
         })
 
         .state('map', {
