@@ -49,16 +49,23 @@ angular.module('happyHrApp')
                 var marker = new google.maps.Marker({
                   map: $scope.map,
                   anchorPoint: new google.maps.Point(0, -29),
-                  animation:google.maps.Animation.BOUNCE,
+                  // animation:google.maps.Animation.BOUNCE,
                   position: latLng
                   // icon:'pinkball.png'
                 });
-                // infowindow populates here
-                var infoWindow = new google.maps.InfoWindow({
-                  content: $scope.businesses[0][j].business_name + ', ' + $scope.businesses[0][j].happy_hour_time
+                // infowindow content populates here
+                var infowindow = new google.maps.InfoWindow({
+                  maxWidth: 200,
+                  content: 
+                  "<p><strong>" + $scope.businesses[0][j].business_name + "</strong><p/>" + 
+                  "<p>Happy Hour: " + $scope.businesses[0][j].happy_hour_time  + "</p>" + 
+                  "<p>Phone Number: " + $scope.businesses[0][j].phone_number + "</p>" +
+                  "<p>Address: " + $scope.fullAddress + "</p>"
                 });
                 google.maps.event.addListener(marker, "click", function() {
-                  infoWindow.open($scope.map, marker);
+                  infowindow.close()
+                  // infowindow.setContent()
+                  infowindow.open($scope.map, marker);
                 });
               })
             }(i));
