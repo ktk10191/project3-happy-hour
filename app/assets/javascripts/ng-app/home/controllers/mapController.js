@@ -63,7 +63,7 @@ angular.module('happyHrApp')
                   "<p>Address: " + $scope.fullAddress + "</p>"
                 });
                 google.maps.event.addListener(marker, "click", function() {
-                  infowindow.close()
+                  // infowindow.close();
                   // infowindow.setContent()
                   infowindow.open($scope.map, marker);
                 });
