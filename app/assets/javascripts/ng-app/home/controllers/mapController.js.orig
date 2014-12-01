@@ -71,6 +71,11 @@ angular.module('happyHrApp')
               })
             }(i));
         };
+<<<<<<< HEAD
+      });
+    };
+  });
+=======
 
        for(var i = 0; i < $scope.businesses[0].length; i++) {
          $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
@@ -119,3 +124,4 @@ angular.module('happyHrApp')
      });
    };
  });
+>>>>>>> master

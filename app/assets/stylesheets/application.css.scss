@@ -17,12 +17,21 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
 .page-content {
-  height: 500px
+  height: 500px;
+}
+
+.info {
+  height: 400px;
+  width: 450px;
+  background-color: white;
+  margin-top: 50px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #content {
   height: 500px;
-  background-color: grey;
+  background-color: #A0A0A0;
 }
 
 /*Footer*/
@@ -34,7 +43,7 @@
   position:relative;
   bottom:0;
   left:0;
-  background: gold;
+  background: #ffd700;
 }
 
 #menu-wrapper { 
@@ -108,6 +117,7 @@ body {
   background-size: 30%;
   background-repeat: repeat-x;
   background-position: center bottom;
+  background-color: #ffd700;
 }
 
 .inlineList {
@@ -121,11 +131,13 @@ body {
     background: black;
 }
 
+
+// styles for google maps
 #map-canvas { 
   position: relative;
   height: 500px; 
-  width: 100%;
-  margin: 0 auto; 
+  width: 90%;
+  margin-left: 10%; 
   padding: 0;
 }
 
@@ -172,4 +184,19 @@ body {
   font-size: 13px;
   font-weight: 300;
 }
+// end of styling for google maps
 
+.navbar {
+  margin-bottom: 0;
+}
+
+.banner {
+  padding-top: 70px;
+}
+
+.happyhrs {
+  width: 100%;
+  strong {
+    color: #ffd700;
+  }
+}
