@@ -22,6 +22,11 @@ class BusinessesController < ApplicationController
     render nothing: true, status: 204
   end
 
+  def show
+    rating = Business.find(params[:id]).ratings
+    render json: rating, status: 200
+  end
+
 private
   def business_params
     params.require(:business).permit(:business_name, :phone_number, :setting, :website, :business_address, :rating)

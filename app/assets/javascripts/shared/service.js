@@ -22,8 +22,8 @@ angular.module('happyHrApp')
 
     },
 
-    getRatings: function(){
-      var promise = $http.get('/api/ratings')
+    getRatings: function(businessId){
+      var promise = $http.get('/api/businesses/' + businessId)
       .then(function(response){
         return response;
       })

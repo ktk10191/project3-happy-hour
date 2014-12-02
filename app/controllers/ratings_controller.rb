@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController  
   
   def index
-    rating = Business.find("1").ratings
+    ratings = Rating.all
     render json: rating, status: 200
   end
 
