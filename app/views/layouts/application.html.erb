@@ -2,7 +2,7 @@
 <html ng-app="happyHrApp">
 <head>
   <title>Cheers!</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true%>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
@@ -80,8 +80,8 @@
             <li>
             <!-- shows current user and log out, only temporary for now -->
               <% if current_user %>
-                currently logged in: <%= current_user.email %>
-                <%= link_to "logout", sessions_path, method: :delete %>
+                <div class="login"> Welcome, <%= current_user.username.upcase %> | </div>
+                <%= link_to "LOGOUT", sessions_path, method: :delete %>
                   <div ng-controller="modalsCtrl">
                   <!-- removed the src for the places api in the script tag below. may need to add that back if the autocomplete needs to be added directly into the form here -->
                     <script type="text/ng-template" id="addBusinessModal.html">
@@ -101,11 +101,11 @@
                         <input type="text" ng-model="businessWebsite" class="form-control"><br>
                         <p class="control-label">Rating</p>
                         <input type="text" ng-model="businessRating" class="form-control"><br>
-                        <button ng-click="addToBusinessApi()" class="btn btn-primary">Add business</button>    
-                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                        <button ng-click="addToBusinessApi()" class="btn btn-primary">Add Business</button>    
+                        <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
                       </div>
                     </script>
-                    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add a business</button>
+                    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add Business</button>
                   </div>
               <% end %>
             </li>

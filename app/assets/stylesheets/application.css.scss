@@ -16,6 +16,12 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+// Login email display
+.login {
+  color: white;
+  display: inline;
+}
+
 .page-content {
   height: 500px;
 }
