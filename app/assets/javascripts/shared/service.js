@@ -16,14 +16,14 @@ angular.module('happyHrApp')
     },
 
     // Add phone number back into the function below later
-    createBusiness: function(businessName, businessAddr, businessPriceRange, businessWebsite, businessRating) {
+    createBusiness: function(businessName, businessAddr, businessPriceRange, businessWebsite, businessRating, businessPhone) {
 
-      $http.post('/api/businesses',  { business_name: businessName,  business_address: businessAddr,  price: businessPriceRange, website: businessWebsite, rating: businessRating})
+      $http.post('/api/businesses', { business_name: businessName, business_address: businessAddr, price: businessPriceRange, website: businessWebsite, rating: businessRating, phone_number: businessPhone})
 
     },
 
-    getRatings: function(){
-      var promise = $http.get('/api/ratings')
+    getRatings: function(businessId){
+      var promise = $http.get('/api/businesses/' + businessId)
       .then(function(response){
         return response;
       })

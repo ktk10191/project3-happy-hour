@@ -16,7 +16,7 @@ angular.module('happyHrApp')
        };
       
        $scope.addToBusinessApi = function() {
-         api.createBusiness($scope.businessName, $scope.businessAddr, $scope.businessPriceRange, $scope.businessWebsite, $scope.businessRating);
+         api.createBusiness($scope.businessName, $scope.businessAddr, $scope.businessPriceRange, $scope.businessWebsite, $scope.businessRating, $scope.businessPhone);
          $modalInstance.dismiss('cancel');
        };
 
