@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'shoulda/matchers'
 
 # Specs in this file have access to a helper object that includes
 # the BusinessesHelper. For example:
@@ -12,5 +11,5 @@ require 'shoulda/matchers'
 #   end
 # end
 RSpec.describe BusinessesHelper, :type => :helper do
-  #pending "add some examples to (or delete) #{__FILE__}"
+  pending "add some examples to (or delete) #{__FILE__}"
 end

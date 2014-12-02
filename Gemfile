@@ -1,9 +1,5 @@
 source 'https://rubygems.org'
 
-
-gem "paperclip", "~> 4.2"
-
-
 gem 'unicorn'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -17,7 +13,7 @@ gem 'sass-rails', '~> 4.0.2'
 
 # Testing Stuff
 group :development, :test do
-	gem 'rspec-rails' 
+	gem 'rspec-rails'
 end
 	
 group :test do
