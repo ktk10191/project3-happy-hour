@@ -16,10 +16,6 @@ describe User do
 	it { should ensure_length_of(:password).is_at_least(6) }	
 	it { should ensure_length_of(:password).is_at_most(20) }
 	it { should ensure_length_of(:email).is_at_most(255) }
-	# it { should ensure_length_of(:username).is_at_least(3) }	
-	# it { should ensure_length_of(:username).is_at_most(20) }
-	# it { should ensure_length_of(:name).is_at_least(3) }	
-	# it { should ensure_length_of(:name).is_at_most(20) }
 
 
 end

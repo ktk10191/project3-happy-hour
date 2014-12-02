@@ -15,10 +15,7 @@ describe Business, :type => :model do
   it { should ensure_length_of(:phone_number).is_equal_to(10) }
 
   # validate phone number format
-  it { should allow_value('1234567890').for(:phone_number) }
-
-  # validate business has ratings
-  it { should have_many(:ratings) }
+  # it { should allow_value('1234567890').for(:phone_number) }
 
 
 end

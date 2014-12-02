@@ -4,7 +4,7 @@ angular.module('happyHrApp')
   $scope.addToBusinessApi = function(data) {
     console.log("Test");
     console.log(data)
-    api.createBusiness($scope.businessName, $scope.businessAddr, $scope.businessPriceRange, $scope.businessWebsite, $scope.businessRating);
+    api.createBusiness($scope.businessName, $scope.businessAddr, $scope.businessPriceRange, $scope.businessWebsite, $scope.businessRating, $scope.phoneNumber);
 
     api.getBusinesses()
       .then(function (data){
