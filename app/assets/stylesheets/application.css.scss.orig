@@ -1,0 +1,207 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require rails_bootstrap_forms
+ */
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+.page-content {
+  height: 500px;
+}
+
+.info {
+  height: 400px;
+  width: 450px;
+  background-color: white;
+  margin-top: 50px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#content {
+  height: 500px;
+  background-color: #A0A0A0;
+}
+
+/*Footer*/
+
+#footer {
+  // margin-top: 50px;
+  width:100%;
+  height:270px;
+  position:relative;
+  bottom:0;
+  left:0;
+  background: #ffd700;
+}
+
+#menu-wrapper { 
+  margin: 0 auto;
+  height: 200px; 
+  width: 100%;
+}
+
+h4 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #404040;
+  margin-bottom: 10px;
+}
+
+.footermenus {
+  margin-top: 15px;
+  width: 290px;
+  float: left;
+  text-align: left;
+}
+
+#more li, #friends li, #inspiration li {
+  display:block;
+  font-family: century gothic, futura;
+  text-transform: uppercase;
+  width: 280px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-left: 75px;
+}
+
+#more a, #friends a, #inspiration a {
+  color: #404040;
+}
+
+#more li a:hover, #friends li a:hover, #inspiration li a:hover {
+  opacity: .6;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+}
+
+
+#copyright {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  background: #444;
+  height: 22px;
+}
+
+#copyright p {
+  font-family: century gothic, futura;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 8px;
+  color: #fff;
+  margin: 0;
+  padding: 3px;
+}
+
+#copyright a {color: #7bf8d6;}
+
+/* footer end */
+
+
+body {
+  // background-image: url("../assets/background.jpg");
+  background-size: 30%;
+  background-repeat: repeat-x;
+  background-position: center bottom;
+  background-color: #ffd700;
+}
+
+.inlineList {
+     display: inline;
+     margin-right: 10px;
+
+}
+
+.container-fluid{
+    border: 5px solid black;
+    background: black;
+}
+
+
+// styles for google maps
+#map-canvas { 
+  position: relative;
+  height: 500px; 
+  width: 90%;
+  margin-left: 10%; 
+  padding: 0;
+}
+
+.controls {
+  margin-top: 16px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  padding: 0 11px 0 13px;
+  width: 400px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+  margin-left: -1px;
+  padding-left: 14px;  /* Regular padding-left + 1. */
+  width: 401px;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+// end of styling for google maps
+
+<<<<<<< HEAD
+.navbar { margin-bottom: 0; 
+          border: 0px;
+=======
+.navbar {
+  margin-bottom: 0;
+}
+
+.banner {
+  padding-top: 70px;
+}
+
+.happyhrs {
+  width: 100%;
+  strong {
+    color: #ffd700;
+  }
+>>>>>>> master
+}
