@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- <iframe width="100%" height="500px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q=bars&key=AIzaSyDdZLvJpNUODunYI4Imfm4elrUI7y66dqc"></iframe> -->
 
 <script>
@@ -96,16 +97,6 @@
 
 </script>
 
-<<<<<<< HEAD
-    <body>
-  <!-- this is what initializes the map from the map controller -->
-      <div ng-init="init()"></div>
-  <!-- map displays here -->
-      <div id="map-canvas"></div>
-<!-- when button is clicked, function makes geocode call to google api in map controller and stores the location data in the DB which 
-then populates on the map canvas -->
-    <button ng-click="geocodeAddresses()" class="btn btn-success happyhrs">Click for <strong>Happy Hours!</stong></button>
-=======
 <body>
 <!-- this is what initializes the map from the map controller -->
   <div ng-init="init()"></div>
@@ -114,7 +105,6 @@ then populates on the map canvas -->
 <!-- when button is clicked, function makes geocode call to google api in map controller and stores the location data in the DB which 
 then populates on the map canvas -->
   <button ng-click="geocodeAddresses()">Show me Happy Hours!</button>
->>>>>>> ryan
 
   <button ng-click="showRatings()">Show Ratings</button>
     {{test}}
@@ -128,4 +118,13 @@ then populates on the map canvas -->
       </div>
     </div>
 
+=======
+<body>
+  <!-- this is what initializes the map from the map controller -->
+  <div ng-init="init()"></div>
+  <div ng-init="geocodeAddresses()"></div>
+  <!-- map displays here -->
+  <div id="map-canvas"></div>
+
+>>>>>>> sophana
 </body>
