@@ -14,10 +14,10 @@ angular.module('happyHrApp')
       $scope.map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
     }
-    
-    // Starting with empty array to push data into
+   // Starting with empty array to push data into
     $scope.businesses = [];
     $scope.map = null;
+    $scope.infowindows = [];
     // Getting business data from the api and pushing it into the businesses array
     $scope.geocodeAddresses = function() {
       // call our api to get our data
@@ -44,28 +44,42 @@ angular.module('happyHrApp')
                   // icon:'pinkball.png'
                 });
                 // infowindow content populates here
-                var infowindow = new google.maps.InfoWindow ({
+                var infowindow = new google.maps.InfoWindow({
                   maxWidth: 200,
                   content: 
-                    "<p><strong>" + $scope.businesses[0][j].business_name + "</strong><p/>" + 
-                    "<p>Happy Hour: " + $scope.businesses[0][j].happy_hour_time  + "</p>" + 
-                    "<p>Phone Number: " + $scope.businesses[0][j].phone_number + "</p>" +
-                    "<p>Address: " + $scope.fullAddress + "</p>" + 
-                    "<p>Ratings: " + $scope.businesses[0][j].rating + "</p>"
+                  "<p><strong>" + $scope.businesses[0][j].business_name + "</strong><p/>" + 
+                  "<p>Happy Hour: " + $scope.businesses[0][j].happy_hour_time  + "</p>" + 
+                  "<p>Phone Number: " + $scope.businesses[0][j].phone_number + "</p>" +
+                  "<p>Address: " + $scope.fullAddress + "</p>"
                 });
 
-                // console.log ($scope.businesses[0][j].business_id.rating)
+                $scope.infowindows.push( infowindow);
 
-                google.maps.event.addListener(marker, "click", function() {
-                  infowindow.close()
+                google.maps.event.addListener(marker, "click", function(event) {
+                  closeInfoWindows();
                   // infowindow.setContent()
                   infowindow.open($scope.map, marker);
                 });
+
+                function closeInfoWindows(){
+                  for (var i = 0; i < $scope.infowindows.length; i++){
+                    $scope.infowindows[i].close();
+                  }
+                }
               })
             }(i));
         };
       });
     };
-  });
 
-  
+    $scope.test = "ratingscontroller works!";
+
+    $scope.showRatings = function() {
+      api.getRatings()
+      .then(function(data){
+        $scope.ratings = data.data;
+        console.log($scope.ratings);
+      })
+    }
+
+  });

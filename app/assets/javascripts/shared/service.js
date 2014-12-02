@@ -20,8 +20,17 @@ angular.module('happyHrApp')
 
       $http.post('/api/businesses',  { business_name: businessName,  business_address: businessAddr,  price: businessPriceRange, website: businessWebsite, rating: businessRating})
 
-      console.log('got to here')
-        // number: businessPhone,
+    },
+
+    getRatings: function(){
+      var promise = $http.get('/api/ratings')
+      .then(function(response){
+        return response;
+      })
+
+      return promise;
+
     }
-  }
+
+  };
 });

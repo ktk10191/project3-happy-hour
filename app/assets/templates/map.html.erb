@@ -105,6 +105,16 @@
 then populates on the map canvas -->
   <button ng-click="geocodeAddresses()">Show me Happy Hours!</button>
 
+  <button ng-click="showRatings()">Show Ratings</button>
+    {{test}}
 
+    <div ng-repeat="business in businesses">
+      <div ng-repeat="b in business">
+          {{b.business_name}}
+          <div ng-repeat="rating in b.ratings">
+            {{rating.rating}}
+          </div>
+      </div>
+    </div>
 
 </body>
