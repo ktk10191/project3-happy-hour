@@ -16,6 +16,15 @@
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
+.custom-btn {
+  height: 75px;
+  width: 75px;
+  white-space: normal;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 2px;
+}
+
 // Login email display
 .login {
   color: white;
@@ -148,8 +157,7 @@ body {
 #map-canvas { 
   position: relative;
   height: 500px; 
-  width: 90%;
-  margin-left: 10%; 
+  width: 100%;
   padding: 0;
 }
 
@@ -207,8 +215,5 @@ body {
 }
 
 .happyhrs {
-  width: 100%;
-  strong {
-    color: #ffd700;
-  }
+  display: inline-block;
 }
