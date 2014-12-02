@@ -61,7 +61,6 @@
                 <div class="modal-body">
                   <%= bootstrap_form_for(:user, :url => create_user_path(@user)) do |f| %>
                     <%= f.text_field :email %> <br>
-                    <%= f.text_field :username %> <br>
                     <%= f.password_field :password %> <br>
                     <%= f.password_field :password_confirmation %>
                     <%= f.submit class:"btn btn-warning"%>
@@ -101,8 +100,6 @@
                         <input type="text" ng-model="businessPriceRange" class="form-control"><br>
                         <p class="control-label">Website</p>
                         <input type="text" ng-model="businessWebsite" class="form-control"><br>
-                        <p class="control-label">Rating</p>
-                        <input type="text" ng-model="businessRating" class="form-control"><br>
                         <button ng-click="addToBusinessApi()" class="btn btn-primary">Add business</button>    
                         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
                       </div>
