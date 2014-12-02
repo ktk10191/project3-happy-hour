@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html ng-app="happyHrApp">
+<head>
+  <title>Cheers!</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true%>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+
+</head>
+<body ng-controller="bioController">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><%= image_tag("Cheers_Logo2.png", height: '37', width: '96') %></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Link</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <div>
+            <li>
+              <div ng-controller="modalsCtrl">
+                <script type="text/ng-template" id="logInModal.html">
+                  <div class="modal-header">
+                    <h3>Log In!</h3>
+                  </div>
+                  <div class="modal-body">
+                    <%= bootstrap_form_for(:user, :url => sessions_path) do |f| %>
+                      <%= f.text_field :email %>
+                      <%= f.password_field :password %>
+                      <%= f.submit 'Log In', class: "btn btn-warning" %>
+                    <% end %>
+                    <br>
+                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </script>
+                
+              </div>
+            </li>
+            <li>
+            <div ng-controller="modalsCtrl">
+              <script type="text/ng-template" id="signUpModal.html">
+                <div class="modal-header">
+                  <h3>Sign Up!</h3>
+                </div>
+                <div class="modal-body">
+                  <%= bootstrap_form_for(:user, :url => create_user_path(@user)) do |f| %>
+                    <%= f.text_field :email %> <br>
+                    <%= f.password_field :password %> <br>
+                    <%= f.password_field :password_confirmation %>
+<<<<<<< HEAD
+                    <%= f.submit class:"btn btn-warning"%>
+=======
+                    <%= f.submit %>
+                    <%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
+                    <%= form.file_field :avatar %>
+                    <% end %><br><br><br><br><br><br><br><br>
+>>>>>>> cosimo
+                    <% end %>
+                    <br>
+                  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </script>
+            <% if current_user == nil %>
+              <button type="button" ng-click="login(md)" class="btn btn-primary navbar-btn">Log In</button>
+              <button type="button "ng-click="signUp(md)" class="btn btn-primary navbar-btn">Sign Up</button>
+              <button type="button" class="btn btn-primary navbar-btn" ui-sref="map">Map</button>
+            <% end %>
+            </div>
+            </li>
+            <li>
+            <!-- shows current user and log out, only temporary for now -->
+              <% if current_user %>
+                currently logged in: <%= current_user.email %>
+                <%= link_to "logout", sessions_path, method: :delete %>
+                  <div ng-controller="modalsCtrl">
+                  <!-- removed the src for the places api in the script tag below. may need to add that back if the autocomplete needs to be added directly into the form here -->
+                    <script type="text/ng-template" id="addBusinessModal.html">
+                      <div class="modal-header">
+                        <h3>Add a business!</h3>
+                      </div>
+                      <div class="modal-body">
+                        <p class="control-label">Name</p>
+                        <input type="text" ng-model="businessName" class="form-control"><br>
+                        <p class="control-label">Address</p>
+                        <input type="text" ng-model="businessAddr" class="form-control"><br>
+                        <p class="control-label">Phone number</p>
+                        <input type="text" ng-model="businessPhone" class="form-control"><br>
+                        <p class="control-label">Price range</p>
+                        <input type="text" ng-model="businessPriceRange" class="form-control"><br>
+                        <p class="control-label">Website</p>
+                        <input type="text" ng-model="businessWebsite" class="form-control"><br>
+                        <p class="control-label">Rating</p>
+                        <input type="text" ng-model="businessRating" class="form-control"><br>
+                        <button ng-click="addToBusinessApi()" class="btn btn-primary">Add business</button>    
+                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                      </div>
+                    </script>
+                    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add a business</button>
+                  </div>
+              <% end %>
+            </li>
+          </div>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<%#= yield %>
+
+<div id="content">
+  <div class="container banner">
+    <%= image_tag("Cheers_Logo.png", height: "100%" , width: "100%" ) %>  
+  </div>
+</div>
+
+<div id="footer">
+  <div id="menu-wrapper">
+    <ul id="more" class="footermenus">
+      <li><h4>More on Cheers!</h4></li>
+      <li><a href="http://facebook.com/" target="_blank">Facebook</a></li>
+      <li><a href="http://instagram.com/" target="_blank">Instagram</a></li>
+      <li><a href="http://twitter.com/" target="_blank">Twitter</a></li>
+      <li><a href="http://www.linkedin.com/" target="_blank">Linked In</a></li>
+    </ul>
+    <ul id="friends" class="footermenus">
+    <li><h4>Dev Team</h4></li>
+      <li><a ui-sref="kyle" ng-click="scrollTo('kyle')" >Kyle</a></li>
+      <li><a ui-sref="ryan" ng-click="scrollTo('ryan')">Ryan</a></li>
+      <li><a ui-sref="cosimo" ng-click="scrollTo('cosimo')">Cosimo</a></li>
+      <li><a ui-sref="sophana" ng-click="scrollTo('sophana')">Sophana</a></li>
+    </ul>
+    <ul id="inspiration" class="footermenus">
+      <li><h4>Inspiration</h4></li>
+      <li><a href="http://www.biomimicryinstitute.org/" target="_blank">Staying Motivated</a></li>
+      <li><a href="http://www.sightunseen.com/" target="_blank">Rewarding Ourselves</a></li>
+      <li><a href="http://www.sagmeister.com/" target="_blank">Ways to Relax</a></li>
+      <li><a href="http://thingsorganizedneatly.tumblr.com" target="_blank">Drinking is Just Fun Sometimes</a></li>
+      <li><a href="http://www.core77.com/" target="_blank">Promote Social Living with Happy Hour</a></li>
+    </ul>
+  </div>
+</div>
+
+<<<<<<< HEAD
+<div id="copyright">
+  <p>Created by TEAM DOOM</p>
+</div>
+=======
+<div id="map-canvas"></div>
+
+
+<!-- image display -->
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+<!-- Star raiting system display-->
+
+<body ng-app="starApp">
+    <div ng-controller="StarCtrl"> <span ng-repeat="rating in ratings">{{rating.current}} out of
+            {{rating.max}}
+        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+        </span>
+    </div>
+</body>
+
+>>>>>>> cosimo
+</body>
+</html>
