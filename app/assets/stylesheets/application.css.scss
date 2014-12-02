@@ -20,6 +20,12 @@
   height: 500px
 }
 
+.img_style {
+  border-radius: 10px;
+  border: 5px solid white;
+  margin: 50px;
+}
+
 #content {
   height: 500px;
   background-color: grey;
@@ -173,3 +179,6 @@ body {
   font-weight: 300;
 }
 
+.navbar { margin-bottom: 0; 
+          border: 0px;
+}

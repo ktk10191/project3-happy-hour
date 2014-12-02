@@ -1,29 +1,19 @@
-class UsersController < ApplicationController
-	
-	skip_before_filter :authorize
-	
-	def index
-		@user = User.new
-		@users = User.all
+class UsersController < ActionController::Base
 
+def create
+	  user_email = :email
+	  user_pass  = :password
+	  password_digest = "NOT REALLY"
+	  @user = User.create( email:user_email, password_digest:password_digest )
 	end
 
-	def new
-		@user = User.new
-	end
+	private
 
-	def create
-		@user = User.new(user_params)
-		if @user.save
-			session[:user_id] = @user.id.to_s
-			redirect_to root_url # Back to home page with a new session
-		else
-			redirect_to (:back)
-		end
-	end
+	# Use strong_parameters for attribute whitelisting
+	# Be sure to update your create() and update() controller methods.
 
-private
 	def user_params
-		params.require(:user).permit(:email, :username, :password, :password_confirmation)
+	  params.require(:user).permit(:email, :password, :avatar)
 	end
+
 end
