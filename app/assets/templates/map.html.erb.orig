@@ -96,6 +96,7 @@
 
 </script>
 
+<<<<<<< HEAD
     <body>
   <!-- this is what initializes the map from the map controller -->
       <div ng-init="init()"></div>
@@ -103,10 +104,28 @@
       <div id="map-canvas"></div>
 <!-- when button is clicked, function makes geocode call to google api in map controller and stores the location data in the DB which 
 then populates on the map canvas -->
-<<<<<<< HEAD
-    <button ng-click="geocodeAddresses()">Show me Happy Hours!</button>
-=======
     <button ng-click="geocodeAddresses()" class="btn btn-success happyhrs">Click for <strong>Happy Hours!</stong></button>
+=======
+<body>
+<!-- this is what initializes the map from the map controller -->
+  <div ng-init="init()"></div>
+<!-- map displays here -->
+  <div id="map-canvas"></div>
+<!-- when button is clicked, function makes geocode call to google api in map controller and stores the location data in the DB which 
+then populates on the map canvas -->
+  <button ng-click="geocodeAddresses()">Show me Happy Hours!</button>
+>>>>>>> ryan
 
->>>>>>> master
-  </body>
+  <button ng-click="showRatings()">Show Ratings</button>
+    {{test}}
+
+    <div ng-repeat="business in businesses">
+      <div ng-repeat="b in business">
+          {{b.business_name}}
+          <div ng-repeat="rating in b.ratings">
+            {{rating.rating}}
+          </div>
+      </div>
+    </div>
+
+</body>

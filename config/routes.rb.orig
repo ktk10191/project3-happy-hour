@@ -17,4 +17,12 @@ Project3HappyHour::Application.routes.draw do
     resources :ratings, only: [:index, :create, :update, :destroy ]
   end
 
+<<<<<<< HEAD
+=======
+  get 'images/' => 'images#index'
+  get 'images/new' => 'images#new', as: :new_image
+  post 'images' => 'images#create', as: :create_image
+
+  # get '*path' => 'application#index'
+>>>>>>> cosimo
 end

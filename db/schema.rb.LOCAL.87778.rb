@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121011041) do
+ActiveRecord::Schema.define(version: 20141120223038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "businesses", force: true do |t|
     t.integer  "business_id"
+    t.integer  "address_id"
     t.string   "phone_number"
     t.string   "website"
     t.integer  "rating_id"
@@ -25,32 +26,28 @@ ActiveRecord::Schema.define(version: 20141121011041) do
     t.string   "price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "business_name"
-    t.string   "street_no"
-    t.string   "street_name"
-    t.string   "city"
-    t.string   "zipcode"
-    t.string   "state"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", force: true do |t|
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "business_id"
-    t.integer  "user_id"
   end
-
-  add_index "ratings", ["business_id"], name: "index_ratings_on_business_id", using: :btree
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
-    t.string   "name"
   end
 
 end

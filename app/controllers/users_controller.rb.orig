@@ -13,7 +13,11 @@ def create
 	# Be sure to update your create() and update() controller methods.
 
 	def user_params
+<<<<<<< HEAD
+		params.require(:user).permit(:email, :password, :password_confirmation)
+=======
 	  params.require(:user).permit(:email, :password, :avatar)
+>>>>>>> master
 	end
 
 end

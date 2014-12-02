@@ -1,5 +1,43 @@
 angular.module('happyHrApp')
 
+<<<<<<< HEAD
+ .controller('mapController', function($scope, api, $http) {
+
+// this function initializes the map
+   $scope.init = function () {
+     var mapOptions = {
+       center: new google.maps.LatLng(34.0219, -118.4814),
+       zoom: 14
+     };
+
+     var infoWindow = new google.maps.InfoWindow();
+
+     $scope.map = new google.maps.Map(document.getElementById('map-canvas'),
+       mapOptions);
+
+     var input = /** @type {HTMLInputElement} */(
+         document.getElementById('pac-input'));
+
+     var types = document.getElementById('type-selector');
+     // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+     // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+     // var autocomplete = new google.maps.places.Autocomplete(input);  
+
+     
+   }
+
+   // Starting with empty array to push data into
+   $scope.businesses = [];
+   $scope.map = null;
+   $scope.infowindows = [];
+   // Getting business data from the api and pushing it into the businesses array
+   $scope.geocodeAddresses = function() {
+     // call our api to get our data
+     api.getBusinesses().then(function (data){
+       // Specifically pushing the json data into the array
+       $scope.businesses.push(data.data);
+
+=======
   .controller('mapController', function($scope, api, $http) {
 
 // this function initializes the map
@@ -73,6 +111,7 @@ angular.module('happyHrApp')
     };
 
 <<<<<<< HEAD
+>>>>>>> master
         for(var i = 0; i < $scope.businesses[0].length; i++) {
           $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
           // need a closure here to enable us to access the for loop index via var j in the $http get
@@ -108,6 +147,14 @@ angular.module('happyHrApp')
               })
             }(i));
         };
+<<<<<<< HEAD
+<<<<<<< HEAD
+      });
+    };
+  });
+=======
+=======
+>>>>>>> master
 
        for(var i = 0; i < $scope.businesses[0].length; i++) {
          $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
@@ -138,6 +185,15 @@ angular.module('happyHrApp')
                });
 
                 $scope.infowindows.push( infowindow);
+<<<<<<< HEAD
+
+               google.maps.event.addListener(marker, "click", function(event) {
+                 closeInfoWindows();
+                 // infowindow.setContent()
+                 infowindow.open($scope.map, marker);
+               });
+
+=======
 =======
     $scope.test = "ratingscontroller works!";
 >>>>>>> ryan
@@ -151,6 +207,7 @@ angular.module('happyHrApp')
     }
 
 <<<<<<< HEAD
+>>>>>>> master
                function closeInfoWindows(){
                  for (var i = 0; i < $scope.infowindows.length; i++){
                    $scope.infowindows[i].close();
@@ -162,6 +219,10 @@ angular.module('happyHrApp')
      });
    };
  });
+<<<<<<< HEAD
+>>>>>>> master
+=======
 =======
   });
 >>>>>>> ryan
+>>>>>>> master

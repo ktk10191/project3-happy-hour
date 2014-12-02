@@ -11,38 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121011041) do
+<<<<<<< Temporary merge branch 1
+ActiveRecord::Schema.define(version: 20141119031111) do
+=======
+ActiveRecord::Schema.define(version: 20141119215813) do
+>>>>>>> Temporary merge branch 2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< Temporary merge branch 1
+  create_table "addresses", force: true do |t|
+    t.string   "address_id"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state_id"
+    t.string   "state"
+=======
   create_table "businesses", force: true do |t|
     t.integer  "business_id"
+    t.integer  "address_id"
     t.string   "phone_number"
     t.string   "website"
     t.integer  "rating_id"
     t.string   "setting"
     t.string   "price"
+>>>>>>> Temporary merge branch 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "business_name"
-    t.string   "street_no"
-    t.string   "street_name"
-    t.string   "city"
-    t.string   "zipcode"
-    t.string   "state"
   end
 
   create_table "ratings", force: true do |t|
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "business_id"
-    t.integer  "user_id"
   end
-
-  add_index "ratings", ["business_id"], name: "index_ratings_on_business_id", using: :btree
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
