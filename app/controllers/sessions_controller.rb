@@ -3,10 +3,9 @@ class SessionsController < ApplicationController
 	skip_before_filter :authorize
 
 	def new
-
 		# present empty login form
-      @user = User.new
-      @is_login = true
+    @user = User.new
+    @is_login = true
 	end
 
 	def create
