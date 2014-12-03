@@ -11,6 +11,7 @@ deploy:
   run:
   - rake db:migrate
   - restart
+  - rake assets:precompile
 notifications:
   slack:
     secure: Kfkum+7VdXiVI6DAnHemwHOnm7JouOcYF6O8x7cHzYK9dREXSKE2gX41xJeCnMrNmMo/cDB5n67b70p0SHvllU1Bgy5cGw4ctRFb2oEshXWooBbbcucNx8WrdGlprqGV0TbDk4+sjnNN1fYuc6UvNGfRciaVicBRURxMTV6hAZ4=
