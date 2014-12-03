@@ -66,4 +66,4 @@ gem 'bootstrap_form'
 
 gem 'better_errors', '~> 2.0.0'
 
-ruby '2.1.2'
+# ruby '2.1.2'
