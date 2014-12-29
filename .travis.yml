@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.0.0-p481
+before_script:
+- psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: kyLzqZ3K4qjjsEe1l0pkMZRR5nvGa7YM49uC+aB6w7FZ77GSK6ygKhxeAF+jObRrvt4SMdyXl5rEfKdDMv2p8zNLuW05TYWf8HKwTcrfh250BylPksAKSPJ6k87nuWrjc/QOrWktJL8cPGfvcAZt2ffgTb+sa1PxmZ7ox31ahe4=
+  app: gacheers
+  run:
+  - rake db:migrate
+  - restart
+  - rake assets:precompile
+notifications:
+  slack:
+    secure: Kfkum+7VdXiVI6DAnHemwHOnm7JouOcYF6O8x7cHzYK9dREXSKE2gX41xJeCnMrNmMo/cDB5n67b70p0SHvllU1Bgy5cGw4ctRFb2oEshXWooBbbcucNx8WrdGlprqGV0TbDk4+sjnNN1fYuc6UvNGfRciaVicBRURxMTV6hAZ4=

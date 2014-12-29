@@ -2,7 +2,7 @@
 <html ng-app="happyHrApp">
 <head>
   <title>Cheers!</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true%>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><%= image_tag("Cheers_Logo2.png", height: '37', width: '96') %></a>
+        <a class="navbar-brand" href="#"><%= image_tag("Cheers_Logo.png", height: '37', width: '96') %></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,8 +80,8 @@
             <li>
             <!-- shows current user and log out, only temporary for now -->
               <% if current_user %>
-                currently logged in: <%= current_user.email %>
-                <%= link_to "logout", sessions_path, method: :delete %>
+                <div class="login"> Welcome, <%= current_user.username.upcase %> | </div>
+                <%= link_to "LOGOUT", sessions_path, method: :delete %>
                   <div ng-controller="modalsCtrl">
                   <!-- removed the src for the places api in the script tag below. may need to add that back if the autocomplete needs to be added directly into the form here -->
                     <script type="text/ng-template" id="addBusinessModal.html">
@@ -101,11 +101,12 @@
                         <input type="text" ng-model="businessWebsite" class="form-control"><br>
                         <p class="control-label">Rating</p>
                         <input type="text" ng-model="businessRating" class="form-control"><br>
-                        <button ng-click="addToBusinessApi()" class="btn btn-primary">Add business</button>    
-                        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                        <button ng-click="addToBusinessApi()" class="btn btn-primary">Add Business</button>    
+                        <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
                       </div>
                     </script>
-                    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary">Add a business</button>
+                    <a ng-controller="mapController" class="happyhrs" ui-sref="map"><%= image_tag src="happyhour_icon.png", size: "80x80" %></a>
+                    <button type="button "ng-click="addBusiness(sm)" class="btn btn-primary navbar-btn custom-btn">ADD Business</button>
                   </div>
               <% end %>
             </li>
@@ -120,9 +121,9 @@
 <% if current_user %>
 <!-- when button is clicked, function makes geocode call to google api in map controller and stores the location data in the DB which 
 then populates on the map canvas -->
-<div ng-controller="mapController">
-  <button class="btn btn-success happyhrs" ui-sref="map">Click for <strong>Happy Hours!</stong></button>
-</div>
+
+
+
 
 <% end %>
 
