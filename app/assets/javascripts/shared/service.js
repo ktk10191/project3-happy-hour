@@ -16,9 +16,10 @@ angular.module('happyHrApp')
     },
 
 
-    createBusiness: function(businessName, businessAddr, businessPriceRange, businessWebsite, businessRating) {
+    createBusiness: function(bName, addr, street, city, zipcode, state, phone, website, rating, happyHourTime) {
 
-      $http.post('/api/businesses',  { business_name: businessName,  business_address: businessAddr,  price: businessPriceRange, website: businessWebsite, rating: businessRating})
+      $http.post('/api/businesses',  { business_name: bName, street_no: addr, street_name: street, city: city, zipcode: zipcode, 
+                                       state: state, phone: phone, website: website, rating: rating, happy_hour_time: happyHourTime })
 
     },
 
