@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-  .controller('mapController', function($scope, api, $http) {
+  .controller('mapController', ['$scope', 'api', '$http', function($scope, api, $http) {
 
 // this function initializes the map
     $scope.init = function () {
@@ -72,14 +72,14 @@ angular.module('happyHrApp')
       });
     };
 
-    $scope.test = "ratingscontroller works!";
+    // $scope.test = "ratingscontroller works!";
 
-    $scope.showRatings = function() {
-      api.getRatings()
-      .then(function(data){
-        $scope.ratings = data.data;
-        console.log($scope.ratings);
-      })
-    }
+    // $scope.showRatings = function() {
+    //   api.getRatings()
+    //   .then(function(data){
+    //     $scope.ratings = data.data;
+    //     console.log($scope.ratings);
+    //   })
+    // }
 
-  });
+  }]);

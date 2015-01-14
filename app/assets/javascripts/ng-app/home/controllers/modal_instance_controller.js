@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-.controller('modalInstanceCtrl', function ($scope, $modalInstance, api) {
+.controller('modalInstanceCtrl', ['$scope', '$modalInstance', 'api', function ($scope, $modalInstance, api) {
      $scope.test = "TEST"
      // Please note that $modalInstance represents a modal window (instance) dependency.
      // It is not the same as the $modal service used above.
@@ -29,7 +29,7 @@ angular.module('happyHrApp')
        $scope.cancel = function () {
          $modalInstance.dismiss('cancel');
        };
-   })
+   }]);
 
 
 
