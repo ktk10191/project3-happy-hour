@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
       
@@ -31,5 +31,5 @@ angular.module('happyHrApp')
           controller: 'mapController'
         });
 
-  });
+  }]);
 

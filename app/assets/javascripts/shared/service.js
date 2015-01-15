@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-.service('api', function($http){
+.service('api', ['$http', function($http){
 
   return {
 
@@ -33,4 +33,4 @@ angular.module('happyHrApp')
     }
 
   };
-});
+}]);
