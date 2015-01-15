@@ -26,7 +26,7 @@ angular.module('happyHrApp')
         $scope.businesses.push(data.data);
 
         for(var i = 0; i < $scope.businesses[0].length; i++) {
-          $scope.fullAddress = $scope.businesses[0][i].street_no + ' ' + $scope.businesses[0][i].street_name + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
+          $scope.fullAddress = $scope.businesses[0][i].address + ' ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
           // need a closure here to enable us to access the for loop index via var j in the $http get
           (function(j) {
             // make a get request to google to geocode the full addresses in the database
