@@ -26,22 +26,20 @@ angular.module('happyHrApp')
         $scope.businesses.push(data.data);
 
         for(var i = 0; i < $scope.businesses[0].length; i++) {
-          $scope.fullAddress = $scope.businesses[0][i].address + ' ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
+          $scope.fullAddress = $scope.businesses[0][i].address + ', ' + $scope.businesses[0][i].city + ', ' + $scope.businesses[0][i].zipcode; 
           // need a closure here to enable us to access the for loop index via var j in the $http get
           (function(j) {
             // make a get request to google to geocode the full addresses in the database
-            $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' +$scope.fullAddress)
+            $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + $scope.fullAddress)
               .then(function(data) {
                 var latLng = data.data.results[0].geometry.location;
                 $scope.businesses[0][j].latLng = latLng;
-                // console.log($scope.businesses[0][j]);
                 // markers are generated when geocodeAddresses() is run and positions are set equal to latLng above 
                 var marker = new google.maps.Marker({
                   map: $scope.map,
                   anchorPoint: new google.maps.Point(0, -29),
                   // animation:google.maps.Animation.BOUNCE,
                   position: latLng
-                  // icon:'pinkball.png'
                 });
                 // infowindow content populates here
                 var infowindow = new google.maps.InfoWindow({
