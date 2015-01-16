@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-  .controller('modalsCtrl', function ($scope, $modal, $log) {
+  .controller('modalsCtrl', ['$scope', '$modal', '$log', function ($scope, $modal, $log) {
       $scope.login = function (size) {
         var modalInstance = $modal.open({
           templateUrl: 'logInModal.html',
@@ -35,4 +35,4 @@ angular.module('happyHrApp')
           $log.info('Modal dismissed at: ' + new Date());
         });
       };
-  })
+  }]);

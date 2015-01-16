@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-.service('api', function($http){
+.service('api', ['$http', function($http){
 
   return {
 
@@ -16,10 +16,10 @@ angular.module('happyHrApp')
     },
 
 
-    createBusiness: function(businessName, businessAddr, businessPriceRange, businessWebsite, businessRating) {
+    createBusiness: function(bName, address, city, zipcode, state, phone, website, rating, happyHourTime) {
 
-      $http.post('/api/businesses',  { business_name: businessName,  business_address: businessAddr,  price: businessPriceRange, website: businessWebsite, rating: businessRating})
-
+      $http.post('/api/businesses', { business_name: bName, address: address, city: city, zipcode: zipcode, state: state, phone_number: phone, website: website, rating: rating, happy_hour_time: happyHourTime })
+      console.log('create business');
     },
 
     getRatings: function(){
@@ -33,4 +33,4 @@ angular.module('happyHrApp')
     }
 
   };
-});
+}]);

@@ -1,6 +1,6 @@
 angular.module('happyHrApp')
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
       
@@ -25,35 +25,11 @@ angular.module('happyHrApp')
           templateUrl: 'signup.html'
         })
 
-         .state('kyle', {
-          url:'/kyle',
-          templateUrl: 'kyle.html',
-          controller: 'bioController'
-        })
-
-        .state('ryan', {
-          url: '/ryan',
-          templateUrl: 'ryan.html',
-          controller: 'bioController'
-        })
-
-        .state('cosimo', {
-          url: '/cosimo',
-          templateUrl: 'cosimo.html',
-          controller: 'bioController'
-        })
-
-        .state('sophana', {
-          url: '/sophana',
-          templateUrl: 'sophana.html',
-          controller: 'bioController'
-        })
-
         .state('map', {
           url: '/map',
           templateUrl: 'map.html',
           controller: 'mapController'
         });
 
-  });
+  }]);
 
