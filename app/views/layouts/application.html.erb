@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><%= image_tag("Cheers_Logo.png", height: '37', width: '96') %></a>
+        <a class="navbar-brand" href="#">Cheers</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,7 +48,7 @@
                   <div class="modal-footer">
                   </div>
                 </script>
-                
+
               </div>
             </li>
             <li>
@@ -118,7 +118,7 @@
                             <label for="happyhr">Happy Hour Times</label>
                             <input type="text" ng-model="happyHourTime" class="form-control">
                           </div>
-                          <button ng-click="addToBusinessApi()" class="btn btn-primary">Add Business</button>    
+                          <button ng-click="addToBusinessApi()" class="btn btn-primary">Add Business</button>
                           <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
                         </div>
                       </form>
@@ -137,7 +137,7 @@
 <%= yield %>
 
 <% if current_user %>
-<!-- when button is clicked, function makes geocode call to google api in map controller and stores the location data in the DB which 
+<!-- when button is clicked, function makes geocode call to google api in map controller and stores the location data in the DB which
 then populates on the map canvas -->
 
 
@@ -147,7 +147,7 @@ then populates on the map canvas -->
 
 <div id="content">
   <div class="container banner">
-    <%= image_tag("Cheers_Logo.png", height: "100%" , width: "100%" ) %>  
+    <%= image_tag("Cheers_Logo.png", height: "100%" , width: "100%" ) %>
   </div>
 </div>
 
